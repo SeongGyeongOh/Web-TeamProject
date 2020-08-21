@@ -4,8 +4,120 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>로그인</title>
+
+        <style>
+            body{
+                margin: 0;
+            }
+
+            ul{list-style: none;}
+
+            a{text-decoration: none;}
+
+            header{
+                background-color: red;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+            }
+
+            #logo{
+                color: white;
+                font-size: 30px;
+                font-weight: bold;
+            }
+
+            #top_menu{
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                font-size: 14px;
+                color: white;
+            }
+
+            #top_menu a{
+                color: white;
+            }
+        </style>
     </head>
     <body>
+        <div>
+            <header>
+                <div id="logo">
+                    <p>버거킹</p>
+                </div>
+                <div id="top_menu">
+                    <a href="">브랜드홈</a> |
+                    <a href="">로그인</a> |
+                    <a href="">고객센터</a>
+                </div>
+                <a href="">
+                    <button>회원가입</button>
+                </a>                
+            </header>
+
+            <nav class="nav">
+                <a href="">HOME</a>
+                <a href="">로그인</a>
+            </nav>
+            <div>
+                <h2>
+                    <strong>WHERE TASTE IS KING</strong>
+                    <span>어서오세요! 버거킹입니다.</span>
+                </h2>
+            </div>
+    
+            <section>
+                <fieldset>
+                    <p>일반 로그인</p>
+                    <div>
+                        <input type="text" placeholder="아이디 (이메일)"><br>
+                        <input type="password" placeholder="비밀번호"><br>
+                    </div>
+                    
+                    <label><input type="checkbox" name="id">아이디 저장</label>
+                    <label><input type="checkbox" name="id">자동 로그인</label>
+                    <div>
+                        <button>로그인</button>
+                        <button>회원가입</button>
+                    </div>
+                    <div>
+                        <a href="">아이디 찾기</a>
+                        <a href="">비밀번호 찾기</a>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <p>간편 로그인</p>
+                    <div>
+                        <ul>
+                            <li class="naver"><a href="">네이버 로그인</a></li>
+                            <li class="kakao"><a href="">카카오톡 로그인</a></li>
+                        </ul>
+                    </div>
+                </fieldset>                        
+            </section>
+            <aside>
+                <div>
+                    <ul>
+                        <li>
+                            <button>비회원 주문</button>
+                        </li>
+                        <li>
+                            <button>비회원 주문내역</button>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    회원가입 없이 비회원으로 주문이 가능합니다.
+                </div>
+                <button>비회원 주문</button>
+            </aside>
+
+    
+            <footer>
+
+            </footer>
+        </div>
         
     </body>
 </html>
