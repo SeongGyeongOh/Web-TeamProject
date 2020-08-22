@@ -21,14 +21,10 @@
             font-family: 'MyFont';
             src: url('./img/GodoB.ttf');
         }
-        p, h1, h2, h3, h4, h5, h6, li, a{
+        p, h1, h2, h3, h4, h5, h6, li, a, button{
             font-family: 'MyFont',sans-serif;
         }
-        
-        html{
-            margin: 0px;
-            padding: 0px;
-        }
+
         body{
             text-align: center;
             background-color: rgb(236, 230, 217);
@@ -42,8 +38,12 @@
             padding-top: 2em;
             padding-bottom: 2em;
             background-color: white;
+            position: relative;
+        }
+        .header .container{
             display: flex;
             flex-direction: row;
+            justify-content: space-evenly;
             position: relative;
         }
         .header #headerlogo{
@@ -53,14 +53,35 @@
             list-style:none;
             margin-top: 4em;
             right: 5em;
+            position: relative;
+            bottom: 15px;
+            left: 15px;
         }
         .header #headlist li{
             display: inline;
-            margin-right: 5em;
-            font-size: 1.3em;
+            margin-right: 3em;
+            font-size: 1.1em;
         }
+        .header #headlist :last-child{
+            margin-right: 0em;
+        }
+        .header .container button{
+            width: 160px;
+            height: 50px;
+            color: #ffffff;
+            font-weight: 700;
+            background:url('./img/bg_redbtn.png');
+            border: none;
+            font-size: 1.25rem;
+            position: relative;
+            top: 55px;
+            line-height: 50px;
+            margin-top: -25px;
+        }
+
+
         /* 맨 위 움직이는 이미지 부분 */
-        #headpic{
+        .carousel .carousel-inner img{
             width: 100%;
         }
         /* 유튜브 영상 */
@@ -85,6 +106,15 @@
         .linktoSNS #img1,#img2,#img3{
             width: 100px;
         }
+        .linktoSNS div :nth-child(2){
+            color: white;
+        }
+        .linktoSNS div :nth-child(3){
+            background-color: white;
+            border-radius: 4px;
+            padding: 0.1em;
+        }
+
         /* 배달 이미지 링크 */
         .linktoDel{
             display: flex;
@@ -107,6 +137,9 @@
             padding-top: 3em;
             padding-bottom: 2em;
         }
+        .linktoMap>h2, p{
+            margin-bottom: 0.5em;
+        }
         .linktoMap .mapicon{
             display: flex;
             flex-direction: row;
@@ -128,7 +161,7 @@
         /* 고정 이미지 */
         .img{
             padding: 3em;
-            background-image: url('./img/fire-2821775_1280.jpg');
+            background-image: url('./img/bg_fire.png');
             color: white;
             display: flex;
             flex-direction: row;
@@ -166,6 +199,12 @@
             display: inline;
             color: black;
             text-align: left;
+            padding-right: 4em;
+            border-right: 0.2px dashed brown  ;
+        }
+        .bottomlist :last-child{
+            border-right: none;
+            padding: 0px;
         }
         .bottommenu li{
             color: #89513a;
@@ -208,20 +247,47 @@
     <div > 
         <!-- 헤더 : 로고와 메뉴 부분 -->
         <header class="header">
-            <a href="./index.html"><img id="headerlogo" src="./img/logo.png" alt=""></a>
-            <ul id="headlist">
-                <li>메뉴소개</li>
-                <li>매장소개</li>
-                <li>이벤트</li>
-                <li>브랜드스토리</li>
-            </ul>
+            <div class="container">
+                <a href="./index.html"><img id="headerlogo" src="./img/logo.png" alt=""></a>
+                <ul id="headlist">
+                    <li>메뉴소개</li>
+                    <li>매장소개</li>
+                    <li>이벤트</li>
+                    <li>브랜드스토리</li>
+                </ul>
+                <button><strong>딜리버리 주문</strong></button>
+            </div>
         </header>
         
         <!-- 컨텐트 섹션 -->
         <section class="maincontent, container" >
             <!-- 맨 위에 움직이는 사진 -->
-            <div class="headPic">
-                <img id="headpic" src="./img/headerimg01.png" alt="헤더 이미지">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                  </ul>
+
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="./img/movingimg/movingimg_24deliver.png" alt="Los Angeles">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./img/movingimg/movingimg_king.png" alt="Chicago">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="./img/movingimg/movingimg_quatro.png" alt="New York">
+                    </div>
+                  </div>
+                <!-- <img id="headpic" src="./img/movingimg/movingimg_24deliver.png" alt="헤더 이미지"> -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </a>
             </div>
 
             <!-- 그 아래 유튜브 동영상 -->
@@ -233,33 +299,33 @@
             <!-- sns 링크 -->
             <div class="linktoSNS" > 
                 <div id="snsface"> 
-                    <a href=""><img id="img1" src="./img/icons8-youtube-squared-128.png" alt=""></a>
-                    <p>YOUTUBE</p>
-                    <p>구독자 2.3만</p>
+                    <a href=""><img id="img1" src="./img/youtube.png" alt=""></a>
+                    <strong>YOUTUBE</strong>
+                    <strong>구독자 2.3만</strong>
                 </div>
                 <div id="snsyou">
-                    <a href=""><img id="img2" src="./img/icons8-facebook-250.png" alt=""></a>
-                    <p>YOUTUBE</p>
-                    <p>좋아요 51.8만</p>
+                    <a href=""><img id="img2" src="./img/facebook.png" alt=""></a>
+                    <strong>FACEBOOK</strong>
+                    <strong>좋아요 51.8만</strong>
                 </div>
                 <div id="snsins">
-                    <a href=""><img id="img3" src="./img/icons8-instagram-150.png" alt=""></a>
-                    <p>YOUTUBE</p>
-                    <p>팔로워 423.0k</p>
+                    <a href=""><img id="img3" src="./img/instagram.png" alt=""></a>
+                    <strong>INSTAGRAM</strong>
+                    <strong>팔로워 423.0k</strong>
                 </div>
             </div>
 
             <!-- 딜리버리 링크 -->
             <div class="linktoDel" >
                 <a href="" id="linktoapp" ><img src="./img/app_desktop.png" alt=""></a>
-                <a href="" id="linktodel"><img src="./img/delivery_desk.png">
+                <a href="" id="linktodel"><img src="./img/delivery_desk.png"></a>
             </div>
 
             <!-- 지도 링크 -->
             <div class="linktoMap">
-                <h2>매장찾기</h2><br>
-                <h4>고객님 주변에 있는 버거킹을 찾아보세요!</h4><br>
-                <a href=""><img src="./img/findingstore.png" alt="" width="120px"></a><br><br>
+                <h2>매장찾기</h2>
+                <p>고객님 주변에 있는 버거킹을 찾아보세요!</p>
+                <a href=""><img src="./img/bg_redbtn.png" alt="" width="120px"></a><br><br>
                 <div class="mapicon">
                 <div>
                     <img src="./img/icons8-motorcycle-100.png" alt="">
@@ -340,19 +406,21 @@
 
         <!-- 푸터 - 정보 -->
         <footer class="footer">
-            <div class="footerLeft">
-                <h5><strong>BURGER KING</strong></h5><br>
-                <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505 </p>
-                <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
-                <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
-                <img src="./img/icons8-facebook-250.png" alt="" width="50px">
-                <img src="./img/icons8-instagram-150.png" alt="" width="50px">
-            </div>
-
-            <div class="footerRight">
-                <a href="">이용약관</a>
-                <a href="">개인정보취급방침</a>
-                <a href="">법적고지</a>
+            <div class="container">
+                <div class="footerLeft">
+                    <h5><strong>BURGER KING</strong></h5><br>
+                    <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505 </p>
+                    <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
+                    <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
+                    <img src="./img/icons8-facebook-250.png" alt="" width="50px">
+                    <img src="./img/icons8-instagram-150.png" alt="" width="50px">
+                </div>
+    
+                <div class="footerRight">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보취급방침</a>
+                    <a href="">법적고지</a>
+                </div>
             </div>
         </footer>
     </div>
