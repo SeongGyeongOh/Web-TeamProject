@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BURGER KING</title>
+
+        <style>
+            #map{
+                width: 100%;
+                height: 400px;
+            }
+        </style>
+
+        <!-- Bootstrap Libray -->
+
+        <!-- 스타일 라이브러리 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- 동적인 기능을 위한 JS 라이브러리 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- 구글지도 api 라이브러리 추가 -->
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsjSbKX8hvve-04z0bzKnObB-CckMK1Wg&callback=initMap" async></script>
+        
+        <script>
+            function showMap(){
+                //지도가 보여질 요소 찾기
+                var e= document.getElementById('map');
+
+                //지도가 보여질 좌표
+                var pos= {lat:37.564400, lng:127.029798};
+
+                //지도객체 생성 및 보여질 요소 지정
+                map= new google.maps.Map(e, {center: pos, zoom:14});
+            }//2020 08 23 여기서
+        </script> 
+
+        <script>
+            function addMarker(){
+                //지도가 보여질 요소
+                var e= document.getElementById('map');
+
+                // 원하는 좌표객체
+                var brk= new google.maps.LatLng(37.562161, 127.035199);
+
+                // 표시되는 지도 옵션객체
+                var opts={
+                    center: brk,
+                    zoom: 14
+                }
+
+                //지도 보이기
+                var map = new google.maps.Map(e, opts);
+
+                //지도에 추가될 마커객체 만들기
+                var marker= new google.maps.Marker({
+                    position: brk,
+                    title:"왕십리센트라스점"
+                });
+
+                //마커 추가하기
+                 marker.setMap(map);
+
+                //마커 클릭 반응하기
+                 marker.addListener('click', function(){
+                     //alert();
+                     open('./sentrol.html',);
+                     
+                 });
+
+                //두번째 마커
+                var station= new google.maps.LatLng(37.561196, 127.038498);//왕십리역
+
+                //마커이미지
+                var img= 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+                var marker2= new google.maps.Marker({
+                    position: station,
+                    title:"왕십리역",
+                    icon:img,
+                    map: map  //마커를 만들면서 map에 추가
+                });
+
+                //마커클릭시에 애니메이션효과
+                marker2.addListener('click', function(){
+                    //마커가 바운스 함..(무한반복)
+                    //marker2.setAnimation(google.maps.Animation.BOUNCE);
+
+                    //누를때 마다 토글 되도록
+                    if(marker2.getAnimation() == null ){
+                        marker2.setAnimation(google.maps.Animation.BOUNCE);
+                    }else{
+                        marker2.setAnimation(null);
+                    }
+                });
+
+                //마커가 보여질대 애니메이션으로 등장하도록
+
+                var phrmacys=[
+                    ["희망약국", 37.562516, 127.035679],
+                    ["이수프라자약국", 37.561155, 127.034560],
+                    ["연세우리약국", 37.560710, 127.035978],
+                    ["왕십리약국", 37.562162, 127.032171]
+                ];
+
+                for(var i=0; i<phrmacys.length; i++){
+                    var title= phrmacys[i][0];
+                    var pos= new google.maps.LatLng(phrmacys[i][1], phrmacys[i][2]);
+
+                    var m= new google.maps.Marker({
+                        position: pos,
+                        title: title,
+                        animation: google.maps.Animation.DROP,
+                        map:map
+                    });
+
+                    m.addListener('click', function(){
+                        alert(this.getTitle());
+                    })
+                }
+
+            }
+        </script>
+
+        <!-- <script id="cc">
+            //마커 추가하기
+                marker.setMap(map);
+
+                //마커 클릭 반응하기
+                marker.addListener('click', function(){
+                    //alert();
+                    open('./sentrol.html');
+                });
+
+        </script>  테스트 -->
+        
+    </head>
+    <body>
+
+        <button onclick="showMap()">show map</button>
+        <button onclick="addMarker()">add marker</button>
+
+        <!-- 지도가 보여질 영역 요소 -->
+        <!-- 구글지도는 반드시 그 영역의 height가 명시적으로 지정되어 있어야함 -->
+        <div id="map"></div>
+        
+    </body>
+</html>
+
+<!-- 다이얼로그 2020.08.23 확인해볼것 왕십리점 연결 방법 -->
+        <!-- <div class="container mt-3">
+            <button class="btn btn-primary" data-toggle="modal" data-target="click">open</button>
+
+            <div class="modal" id="dialog1" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content"></div>
+                </div>
+            </div>
+        </div> -->
