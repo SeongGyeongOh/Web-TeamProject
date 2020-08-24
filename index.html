@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>버거킹 clone</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>버거킹 clone</title>
+        
+        <!-- bootstrap library 추가하기 -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- 동적인 동작을 위한 js 라이브러리들 -->
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+        <script>
+            // ajax를 이용한 화면변환
+            function changescreen(){   
+                // alert('test1');
+        
+                var url='<화면에 보일 html 파일명>';
+        
+                var req=new XMLHttpRequest();
+        
+                req.open('GET', url, true);
+                req.onreadystatechange=function(){
+                    if(req.readyState==4&&req.status==200){
+                        alert(req.responseText);    
+                        document.getElementById('<html이 놓여질 요소의 id>').innerHTML=req.responseText;                            
+                    }
+                }
+        
+                req.send();
+            }
+        </script>
 
-    <!-- bootstrap library 추가하기 -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- 동적인 동작을 위한 js 라이브러리들 -->
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+        <script>
+            // 상단 메뉴 마우스 이벤트
+            function showsecond(d){
+                d.style.display="none";
+                document.getElementById('secondwrap').style.display="inline";
+            }
+            function showfirst(d){
+                d.style.display="none";
+                document.getElementById('first').style.display='flex';
+            }
+        </script>
     <style>
         @font-face {
             font-family: 'MyFont';
@@ -25,9 +57,11 @@
             font-family: 'MyFont',sans-serif;
         }
          */
+
         body{
             text-align: center;
             background-color: rgb(236, 230, 217);
+            position: relative;
         }
         body *{
             margin: 0px;
@@ -39,33 +73,74 @@
             padding-top: 1em;
             padding-bottom: 1em;
             background-color: white;
-            position: relative;
             font-weight: bold;
+            position: relative;
             font-size: 1.1em;
         }
         .header .container{
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
+            align-items: flex-start;
             position: relative;
-            align-items: center;
+        }
+        .header #headlist{
+            top: 2em;
+            position: relative;
+        }
+
+        .header #first .mainmenu>li{
+            margin-right: 3em;
+            list-style: none;
+        }
+        .header #secondwrap{
+            display: none;
+            text-align: center;
+        }
+        .header #second{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            align-items: flex-start;
+            width: 100%;
+            height: 300px;
+        }
+        .header #second .mainmenu{
+            z-index: 999;
+            text-align: left;
+            overflow-wrap: normal;
+            position: relative;
+        }
+
+        .header #second .submenu{
+            font-size: 0.7em;
+            font-weight: -100;
+            display: block;
+            z-index: 999;
+        }
+        .header #second .mainmenu>li{
+            margin-bottom: 1em;
+            margin-right: 3em;
+        }
+        .header #second .mainmenu .submenu :last-child{
+            margin-bottom: 4em;
+        }
+        .header #second li{
+            list-style: none;
         }
         .header #headerlogo{
             width: 80px;
-        }
+        }        
         .header #headlist{
-            list-style:none;
             right: 5em;
+            display: flex;
             position: relative;
-            left: 15px;
+            left: 2em;
         }
-        .header #headlist li{
-            display: inline;
-            margin-right: 3em;
-            font-size: 1.1em;
-        }
+
         .header #headlist :last-child{
-            margin-right: 0em;
+            margin-right: 0em; 
         }
         .header .container button{
             width: 160px;
@@ -76,15 +151,20 @@
             border: none;
             font-size: 1.25rem;
             position: relative;
-            /* top: 55px; */
+            top: 1.5em;
             line-height: 50px;
-            /* margin-top: -25px; */
         }
 
 
         /* 맨 위 움직이는 이미지 부분 */
         .carousel .carousel-inner img{
+            z-index: 1;
+            position: relative;
             width: 100%;
+        }
+        .carousel #demo{
+            position: relative;
+            z-index: 0;
         }
         /* 유튜브 영상 */
         .indexVideo{
@@ -285,20 +365,70 @@
     <div > 
         <!-- 헤더 : 로고와 메뉴 부분 -->
         <header class="header">
-            <div class="container">
+            <div class="container first" id="first" onmouseover="showsecond(this)">
                 <a href="./index.html"><img id="headerlogo" src="./img/logo.png" alt=""></a>
-                <ul id="headlist">
-                    <li>메뉴소개</li>
-                    <li>매장소개</li>
-                    <li>이벤트</li>
-                    <li>브랜드스토리</li>
-                </ul>
+                <div id="headlist">
+                    <ul class="mainmenu" onclick="changescreen()">
+                        <li>메뉴소개</li>
+                    </ul>
+                    <ul class="mainmenu"> 
+                        <li>매장소개</li>
+                    </ul>
+                    <ul class="mainmenu">
+                        <li>이벤트</li>
+                    </ul>
+                    <ul class="mainmenu">
+                        <li>브랜드스토리</li>
+                    </ul>
+                </div>
                 <button><strong>딜리버리 주문</strong></button>
             </div>
+
+            <div id="secondwrap" onmouseleave="showfirst(this)">
+                <div class="container second" id="second">
+                    <a href="./index.html"><img id="headerlogo" src="./img/logo.png" alt=""></a>
+                    <div id="headlist">
+                        <ul class="mainmenu" onclick="changescreen()">
+                            <li>메뉴소개</li>
+                            <ul class="submenu">
+                                <li>스페셜&할인팩</li>
+                                <li>프리미엄</li>
+                                <li>와퍼</li>
+                                <li>주니어&버거</li>
+                                <li>올데이킹&치킨버거</li>
+                                <li>사이드</li>
+                                <li>음료&디저트</li>
+                                <li>아침메뉴</li>
+                            </ul>
+                        </ul>
+                        <ul class="mainmenu"> 
+                            <li>매장소개</li>
+                            <ul class="submenu">
+                                <li>매장찾기</li>
+                            </ul>
+                        </ul>
+                        <ul class="mainmenu">
+                            <li>이벤트</li>
+                            <ul class="submenu">
+                                <li>이벤트</li>
+                            </ul>
+                        </ul>
+                        <ul class="mainmenu">
+                            <li>브랜드스토리</li>
+                            <ul class="submenu">
+                                <li>브랜드스토리</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <button><strong>딜리버리 주문</strong></button>
+                </div>
+            </div>
+
+
         </header>
         
         <!-- 컨텐트 섹션 -->
-        <section class="maincontent, container" >
+        <section class="maincontent, container" id="maincontent">
             <!-- 맨 위에 움직이는 사진 -->
             <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -331,7 +461,6 @@
             <!-- 그 아래 유튜브 동영상 -->
             <div class="indexVideo" >
                 <iframe id="youtube" width="100%" height="300px" src="https://www.youtube.com/embed/pCyePydLajI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <!-- <video id="youtube" src="https://www.youtube.com/embed/pCyePydLajI" controls></video> -->
             </div>
 
             <!-- sns 링크 -->
