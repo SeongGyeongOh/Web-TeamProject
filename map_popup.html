@@ -1,0 +1,62 @@
+<!-- 지도 마커 and 정보입력 방법  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Markers</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsjSbKX8hvve-04z0bzKnObB-CckMK1Wg&callback=initMap" defer></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      "use strict";
+
+      function initMap() {
+        const myLatLng = {
+          lat: 37.564400,
+          lng: 127.029798
+        };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 17,
+          center: myLatLng
+        });
+        const contentString =
+          "</div>" +
+          '<h3><a href="./sentrol.html">왕십리센트라스점</a></h3>' +
+          '<p> 주소 : </p>' +
+          "</div>";
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        const marker = new google.maps.Marker({
+          position: myLatLng,
+          map,
+          title: "Uluru (Ayers Rock)"
+        });
+        marker.addListener("click", () => {
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    
+    
+    
+    
+  </body>
+</html>
