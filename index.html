@@ -109,9 +109,13 @@
                 border: 0;
             }
 
-            section div ul li button:visited{
+            section div ul li button:active{
                 color: red;
-                border-bottom: 4px solid red;
+                border-bottom: 2px solid red;
+            }
+
+            section div ul li button:focus{
+                outline: 0;
             }
 
             .tab{
@@ -128,9 +132,27 @@
 
             .tab ul li button{
                 font-weight: bold;
-                overflow: visible;
                 padding: 23px 250px;
                 font-size: 1.2em;
+            }
+
+            .tab ul li button:focus{
+                outline: 0;
+            }
+
+            .tab #eventTag{
+                border: 2px solid black;
+                border-bottom: 0;
+                background-color: white;
+                color: black;
+            }
+
+            .tab #newTag{
+                border: 2px solid black;
+                border-top: 0;
+                border-right: 0;
+                background-color: silver;
+                color: #555555;
             }
             
             .event{
@@ -284,8 +306,8 @@
             </section>
             <div class="tab">
                 <ul>
-                    <li><button><span>이벤트</span></button></li>
-                    <li><button><span>신규매장</span></button></li>
+                    <li><button id="eventTag"><span>이벤트</span></button></li>
+                    <li><button id="newTag"><span>신규매장</span></button></li>
                 </ul>
             </div>
             <div class="event">
