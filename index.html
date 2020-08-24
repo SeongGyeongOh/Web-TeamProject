@@ -1,300 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>버거킹</title>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>event</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                height: 0;
+            }
 
-    <!-- bootstrap library 추가하기 -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- 동적인 동작을 위한 js 라이브러리들 -->
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            .page{
+                margin-right: auto;
+                margin-left: auto;
+            }
 
-    <style>
-        @font-face {
-            font-family: 'MyFont';
-            src: url('./img/GodoB.ttf');
-        }
-        p, h1, h2, h3, h4, h5, h6, li, a{
-            font-family: 'MyFont',sans-serif;
-        }
-        strong{
-            color: red;
-        }
-        html{
-            margin: 0px;
-        }
-        body{
-            text-align: center;
-            background-color: rgb(236, 230, 217);
-        }
-        body *{
-            margin: 0px;
-            padding: 0px;
-        }
-        /* 헤더: 로고와 이미지 부분 */
-        .header{
-            padding-top: 2em;
-            padding-bottom: 2em;
-            background-color: white;
-            display: flex;
-            flex-direction: row;
-            position: relative;
-        }
-        .header #headerlogo{
-            width: 80px;
-        }
-        .header #headlist{
-            list-style:none;
-            margin-top: 4em;
-            right: 5em;
-        }
-        .header #headlist li{
-            display: inline;
-            margin-right: 5em;
-            font-size: 1.3em;
-        }
-        /* 맨 위 움직이는 이미지 부분 */
-        #headpic{
-            width: 100%;
-        }
-        /* 유튜브 영상 */
-        /* SNS 링크 이미지 */
-        .linktoSNS div{
-            display: inline;
-        }
-        .linktoSNS #img1,#img2,#img3{
-            width: 100px;
-        }
-        .linktoSNS #img1,#img2{
-            margin-right: 12em;
-        }
-        /* 배달 이미지 링크 */
-        .linktoDel{
-            display: flex;
-            flex-direction: row;
-        }
-        .linktoDel img{
-            width: 100%;
-        }
-        
-        /* 매장찾기 */
-        .linktoMap{
-            background-color: white;
-            padding-top: 3em;
-            padding-bottom: 2em;
-        }
-        .linktoMap .mapicon{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
-        .mapicon div{
-            border-right: 1px solid darkgrey ;
-            padding-right: 5em;
-        }
+            header{
+                text-align: center;
+            }
 
-        /* 고정 이미지 */
-        .img{
-            padding: 3em;
-            background-image: url('./img/fire-2821775_1280.jpg');
-            color: white;
-        }
-        .img .fixedLeft{
-            display: inline;
-            text-align: left;
-        }
-        .img #imginimg{
-            width: 50px;
-            margin-top: 3em;
-        }
-        
-        /* 하단 메뉴 */
-        .bottommenu{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
-        .bottommenu h4{
-            display: inline;
-            margin: 1em;
-        }
-        .bottommenu ul{
-            list-style: none;
-            display: inline;
-        }
-        .bottommenu li{
-            padding: 0.5em;
-            color: black;
-        }
+            header div{
+                display: inline;
+            }
 
-        /* 푸터 */
-        .footer{
-            padding-top: 3em;
-            padding-left: 5em;
-            padding-right: 5em;
-            color: lightslategrey;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-        .footer .footerLeft{
-            text-align: left;
-        }
+            header div img{
+                margin: 30px;
+                width: 80px;
+                height: 80px;
+            }
 
+            header ul{
+                list-style: none;
+                display: inline-block;
+            }
 
-    </style>
-</head>
-<body>
+            header ul li{
+                font-weight: bold;
+                display: inline;
+                margin:60px;
+                vertical-align: middle;
+            }
 
-    <div class="container"> 
-        <!-- 헤더 : 로고와 메뉴 부분 -->
-        <header class="header">
-            <img id="headerlogo" src="./img/logo.png" alt="">
-            <ul id="headlist">
-                <li>메뉴소개</li>
-                <li>매장소개</li>
-                <li>이벤트</li>
-                <li>브랜드스토리</li>
-            </ul>
-        </header>
-        
-        <!-- 컨텐트 섹션 -->
-        <section class="maincontent">
-            <!-- 맨 위에 움직이는 사진 -->
-            <div class="headPic">
-                <img id="headpic" src="./img/headerimg01.png" alt="헤더 이미지">
-            </div>
+            header #btnDel{
+                font-size: 20px;
+                vertical-align: middle;
+            }
 
-            <!-- 그 아래 유튜브 동영상 -->
-            <div class="indexVideo" style="height: 300px; background-color: aqua;">
-                <video src="../Web/Day03/media/trailer.mp4" height="300px" width="980px" controls></video>
-            </div>
+            nav{
+                background-color: black;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                padding-right: 800px;
+            }
 
-            <!-- sns 링크 -->
-            <div class="linktoSNS" style="height: 150px; background-color: green;"> 
-                <div> 
-                    <a href=""><img id="img1" src="./img/icons8-facebook-250.png" alt=""></a>
+            nav a{
+                text-decoration: none;
+                color: white;
+            }
+
+            section div h2{
+                display: inline-block;
+                font-weight: bold;
+                margin-left: 420px;
+            }
+
+            section div ul{
+                text-align: right;
+                margin-right: 390px;
+            }
+
+            section div ul li{
+                display: inline;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="page">
+            <header>
+                <div>
+                    <!-- main화면으로 이동 -->
+                    <a href="./main.html"><img src="data:image/png;base64,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" alt="버거킹"></a>
                 </div>
                 <div>
-                    <a href=""><img id="img2" src="./img/icons8-youtube-squared-128.png" alt=""></a>
+                     <ul class="topMenu">
+                        <ul>
+                            <li><span>메뉴소개</span></li>
+                            <li><span>매장소개</span></li>
+                             <li><span>이벤트</span></li>
+                            <li><span>브랜드스토리</span></li>
+                        </ul>
+                    </ul>
+                    <button id="btnDel">딜리버리주문</button>
+                </div>
+            </header>
+            <nav>
+                <!-- 메인 화면으로 이동 -->
+                <a href="./main.html">HOME</a>
+                <span>   >이벤트   ></span>
+                <span>전체</span>
+            </nav>
+            <section>
+                <div>
+                    <h2>이벤트</h2>
                 </div>
                 <div>
-                    <a href=""><img id="img3" src="./img/icons8-instagram-150.png" alt=""></a>
+                    <ul>
+                        <li><button onclick="">전체</button></li>
+                        <li><button onclick="">진행중</button></li>
+                        <li><button onclick="">종료</button></li>
+                    </ul>
                 </div>
-            </div>
-
-            <!-- 딜리버리 링크 -->
-            <div class="linktoDel" style="background-color: grey;">
-                <a href="" ><img src="./img/indexapp.png" alt=""></a>
-                <a href="" ><img src="./img/indexdelivery.png" alt=""></a>
-            </div>
-
-            <!-- 지도 링크 -->
-            <div class="linktoMap">
-                <h2>매장찾기</h2><br>
-                <h4>고객님 주변에 있는 버거킹을 찾아보세요!</h4><br>
-                <a href=""><img src="./img/findingstore.png" alt="" width="120px"></a><br><br>
-                <div class="mapicon">
-                <div>
-                    <img src="./img/icons8-motorcycle-100.png" alt="">
-                    <p>집에서 편안하게<br>받을 수 있는<br><strong>딜리버리</strong></p>
-                </div>
-                <div>
-                    <img src="./img/icons8-online-store-100.png" alt="">
-                    <p>미리 주문하고<br>픽업 가능한<br><strong>킹오더</strong></p>
-                </div>
-                <div>
-                    <img src="./img/icons8-car-100.png" alt="">
-                    <p>차안에서 빠르게<br>이용할 수 있는<br><strong>드라이브 스루</strong></p>
-                </div>
-                <div>
-                    <img src="./img/icons8-last-24-hours-100.png" alt="">
-                    <p>24시간 언제든<br>함께할 수 있는<br><strong>24시간</strong></p>
-                </div>
-                <div>
-                    <img src="./img/icons8-sun-100.png" alt="" style="border-right: 0px solid black;">
-                    <p>든든한<br>아침을 도와줄<br><strong>아침메뉴</strong></p>
-                </div>
-                </div>
-            </div>
-
-            <!-- 고정 이미지 -->
-            <div class="img">
-                <div class="fixedLeft">
-                    <h3>집에서 만나는 버거킹</h3><br>
-                    <h5>딜리버리 전화주문 안내 10:00-22:00 / 연중무휴 [매장별로 상이할 수 있습니다.]</h5>
-                </div>
-                <div class="fixedRight">
-                    <img id="imginimg" src="./img/phone.png" alt="">
-                    <h1>1599-0505</h1>
-                </div>
-            </div>
-        </section>
-
-        <!-- 맨 아래 메뉴 섹션 -->
-        <section class="bottommenu">
-            <ul>
-                <h4>메뉴</h4>
-                <li><a href="">스페셜&할인팩</a></li>
-                <li><a href="">프리미엄</a></li>
-                <li><a href="">와퍼</a></li>
-                <li><a href="">주니어&버거</a></li>
-                <li><a href="">올데이킹&치킨버거</a></li>
-                <li><a href="">사이드</a></li>
-                <li><a href="">음료&디저트</a></li>
-                <li><a href="">아침메뉴</a></li>
-            </ul>
-            <ul>
-                <h4>매장소개</h4>      
-                <li><a href="">매장찾기</a></li>         
-            </ul>
-            <ul>
-                <h4>이벤트</h4>
-                <li><a href="">이벤트</a></li>
-                <li><a href="">신규매장</a></li>
-            </ul>
-            <ul>
-                <h4>브랜드스토리</h4>
-                <li><a href="">버거킹 스토리</a></li>
-                <li><a href="">WHY 버거킹</a></li>
-                <li><a href="">버거킹 NEWS</a></li>
-            </ul>
-            <ul>
-                <h4>고객센터</h4>
-                <li><a href="">공지사항</a></li>
-                <li><a href="">버거킹앱이용안내</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">문의</a></li>
-                <li><a href="">가맹점모집</a></li>
-                <li><a href="">인재채용</a></li>
-            </ul>
-        </section>
-
-        <!-- 푸터 - 정보 -->
-        <footer class="footer" style="background-color: black; height: 200px;">
-            <div class="footerLeft">
-                <h3>BURGER KING</h3>
-                <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505 </p>
-                <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
-                <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
-                <img src="./img/icons8-facebook-250.png" alt="" width="50px">
-                <img src="./img/icons8-instagram-150.png" alt="" width="50px">
-            </div>
-
-            <div class="footerRight">
-                <a href="">이용약관</a>
-                <a href="">개인정보취급방침</a>
-                <a href="">법적고지</a>
-            </div>
-        </footer>
-    </div>
-
-</body>
+            </section>
+            <footer>
+    
+            </footer>
+        </div>
+    </body>
 </html>
