@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>버거킹 clone</title>
+        
+        <!-- bootstrap library 추가하기 -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- 동적인 동작을 위한 js 라이브러리들 -->
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+        <script>
+            // ajax를 이용한 화면변환
+            function changescreen(){   
+                // alert('test1');
+        
+                var url='<화면에 보일 html 파일명>';
+        
+                var req=new XMLHttpRequest();
+        
+                req.open('GET', url, true);
+                req.onreadystatechange=function(){
+                    if(req.readyState==4&&req.status==200){
+                        alert(req.responseText);    
+                        document.getElementById('<html이 놓여질 요소의 id>').innerHTML=req.responseText;                            
+                    }
+                }
+                req.send();
+            }
+        </script>
+
+        <script>
+            // 상단 메뉴 마우스 이벤트
+            function showsecond(d){
+                if(window.innerWidth<580){
+                    return;
+                }else{
+                    d.style.display="none";
+                    document.getElementById('secondwrap').style.display="inline";
+                }
+            }
+            function showfirst(d){
+                d.style.display="none";
+                document.getElementById('first').style.display='flex';
+            }
+        </script>
+
+        <script>
+            // 반응형 메뉴
+            function showLeftMenu(){
+                var circleBtObj = document.getElementById('circleBt');
+                var leftMenuObj = document.getElementById('hideMenuBodyId');
+                circleBtObj.style['display'] = "none";
+                leftMenuObj.style['transform'] = "translate(0px, 0px)";
+                
+                leftMenuObj.style['msTransform'] = "translate(0px, 0px)";
+                leftMenuObj.style['mozTransform'] = "translate(0px, 0px)";
+                leftMenuObj.style['webkitTransform'] = "translate(0px, 0px)";
+                leftMenuObj.style['oTransform'] = "translate(0px, 0px)";
+            }
+
+            function closeLeftMenu() {
+                var circleBtObj = document.getElementById('circleBt');
+                var leftMenuObj = document.getElementById('hideMenuBodyId');
+
+                circleBtObj.style['display'] = "block";
+                leftMenuObj.removeAttribute("style");
+            }
+        </script>
+
+    <style>
+
+        @font-face {
+            font-family: 'MyFont';
+            src: url('./img/GodoB.ttf');
+        }
+
+
+        body{
+            text-align: center;
+            background-color: rgb(236, 230, 217);
+            position: relative;
+        }
+        body #maincontent{
+            max-width: 1140px;
+            min-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        body *{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'MyFont',sans-serif;
+        }
+        #wrapper{
+            min-width: 780px;
+        }
+
+        /* 헤더: 로고와 이미지 부분 */
+        /* 히든메뉴 */
+        .hiddenmenuwrap{
+            display: none;
+            position: relative;
+            z-index: 999;
+            width: 100%;
+            height: 50px;
+            background-color: white;
+        }
+        .VirtualView {
+            width: 100%;
+            background-color: white;
+            height: 70px;
+            overflow: hidden;
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            padding-top: 10px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 10px;
+        }
+        .VirtualView img{
+            width: 50px;
+            height: 50px;
+        }
+        .VirtualView #hiddenredbtn{
+                width: 80px;
+                background-size: 80px;
+                height: 28px;
+                border: 0px;
+                background-image: url('./img/bg_redbtn.png');
+                background-color: transparent;
+                color: white;
+                
+            }
+        
+        .hideMenuBody {
+            width: 100%;
+            height: 900px;
+            background-color: #ffffff;
+            padding-top: 30px;
+            transition: transform 600ms;
+            transform: translate(-150px, 0px);
+            -ms-transition: -ms-transform 600ms;
+            -webkit-transition: -webkit-transform 600ms;
+            -moz-transition: -moz-transform 600ms;
+            -o-transition: -o-transform 600ms;
+            -ms-transform: translate(-100%, 0px);
+            -webkit-transform: translate(-100%, 0px);
+            -moz-transform: translate(-100%, 0px);
+            -o-transform: translate(-100%, 0px);
+        }
+        .hideMenuBody #closebtn {
+            width: 30px;
+            height: 30px;
+            background-size: 30px;
+            background-color: transparent;
+            border: 0px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            background-image: url('./img/icons8-x-50.png');
+        }
+        .hideMenuBody .mainmenu{
+            list-style: none;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            display: block;
+            padding-top: 2em;
+        }
+        .hideMenuBody .mainmenu>li{
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    
+        .hideMenuBody .mainmenu ul, .mainmenu li{
+            display: block;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .hideMenuBody .submenu li, a{
+            display: block;
+            color: black;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            text-decoration: none;
+        }
+        .hideMenuBody > div:hover {
+            background-color: #c5bebe;
+        }
+    
+        .circleBt {
+            width: 30px;
+            background-image: url('./img/icons8-menu-50.png');
+            background-size: 30px;
+            height: 30px;
+            background-color: transparent;
+            border: 0px;
+            position: relative;
+            cursor: pointer;
+        }
+        .header{
+            padding-top: 1em;
+            padding-bottom: 1em;
+            background-color: white;
+            font-weight: bold;
+            position: fixed;
+            z-index: 999;
+            text-align: center;
+            width: 100%;
+            font-size: 1.1em;
+        }
+        .header .contains{
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            min-width: 780px;
+        }
+        .header #headlist{
+            top: 2em;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header #first .mainmenu>li{
+            margin-right: 2em;
+            list-style: none;
+        }
+        .header #secondwrap{
+            display: none;
+            text-align: center;
+        }
+        .header #second{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            align-items: flex-start;
+            width: 100%;
+            height: 300px;
+        }
+        .header #second .mainmenu{
+            z-index: 999;
+            text-align: left;
+            overflow-wrap: normal;
+            position: relative;
+        }
+
+        .header #second .submenu{
+            font-size: 0.7em;
+            font-weight: -100;
+            display: block;
+            z-index: 999;
+            position: fixed;
+        }
+        .header #second .mainmenu>li{
+            margin-bottom: 1em;
+            margin-right: 2em;
+            flex-shrink: 1;
+        }
+        
+        .header #second .mainmenu .submenu :last-child{
+            margin-bottom: 4em;
+        }
+        .header #second li{
+            list-style: none;
+        }
+        .header #headerlogo{
+            width: 83px;
+        }        
+        .header #headlist{
+            right: 5em;
+            display: flex;
+            position: relative;
+            left: 2em;
+        }
+
+        .header #headlist :last-child{
+            margin-right: 0em; 
+        }
+        .header .contains button{
+            width: 150px;
+            height: 50px;
+            color: #ffffff;
+            background-image:url('./img/bg_redbtn.png');
+            background-size: 150px;
+            border: none;
+            font-size: 1.25rem;
+            position: relative;
+            top: 1.5em;
+            line-height: 50px;
+        }
+
+
+        /* 컨텐츠 */
+
+        #contentsdiv{
+            padding-top: 300px;
+            z-index: 1;
+            height: 1000px;
+            text-align: center;
+        }
+
+        @media screen and(min-width: 600px){
+            
+        }
+
+
+
+
+
+
+        /* 컨텐츠 */
+
+
+
+        /* 하단 메뉴 */
+        .bottomlist{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-evenly ;
+            min-width: 780px;
+        }
+        .bottommenu{
+            padding-top: 2em;
+            padding-bottom: 8em;
+            background-image: url('./img/bg_bottommenu.jpg');
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            font-weight: bold;
+        }
+        .bottommenu ul{
+            list-style: none;
+            display: inline;
+            color: black;
+            text-align: left;
+            padding-right: 4em;
+            border-right: 0.2px dashed brown  ;
+        }
+        .bottomlist :last-child{
+            border-right: none;
+            padding: 0px;
+        }
+        .bottommenu li{
+            color: #89513a;
+            font-size: 1.2em;
+        }
+        .bottommenu a{
+            color: #89513a;
+            font-size: 0.8em;
+        }
+
+        /* 푸터 */
+        .footer{
+            padding-top: 4em;
+            padding-bottom: 2em;
+            padding-left: 5em;
+            padding-right: 5em;
+            color: rgb(81, 89, 97);
+            background-color: rgb(31, 29, 29);
+            min-width: 734px;
+        }
+        .footer .contains{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around; 
+        }
+        .footer .footerLeft{
+            text-align: left;
+        }
+        .footer .footerLeft h5, p{
+            font-size: 0.8em;
+        }
+        .footer .footerLeft img{
+            width: 25px;
+            margin-right: 0.5em;
+        }
+        .footerRight a{
+            color: rgb(81, 89, 97);         
+            padding: 0em 0.5em;
+            border-right: 1px solid rgb(81, 89, 97);
+            font-size: 0.8em;
+        }
+
+        @media screen and (max-width:600px){
+            /* 전체화면 - 꽉 차게 */
+            body #maincontent{
+                min-width: 100%;
+                max-width: 100%;
+            }
+            .hiddenmenuwrap{
+                display: inline-block;
+            }
+            .hiddenMenuBody{
+                display: none;
+            }
+            .header {
+                display: none;
+            }
+            /* 움직이는 이미지 */
+            .carousel {
+                display: none;
+            }
+            #demo2{
+                margin-top: -500px;
+                display: block;
+            }   
+            .carousel .carousel-inner img{
+            margin-top: 0em;
+        }
+            /* sns 링크 */
+            .linktoSNS .wrapsns{
+                flex-direction: column;
+                align-items: center;
+            }
+            .linktoSNS #img1,#img2,#img3{
+                width: 50px;
+                margin-top: 1.8em;
+            }
+            .linktoSNS strong{
+                font-weight: 0;
+                font-size: 0.7em;
+            }
+            .linktoSNS .wrapsns :nth-child(2){
+                margin-left: 0em;
+                text-align: center;
+            }
+            /* 배달 이미지 링크 */
+            .linktoDel{
+                flex-direction: column;
+                justify-content: center;
+            }
+            /* 지도 링크 */
+            .linktoMap{
+                text-align: center;
+            }
+            .linktoMap button{
+                width: 150px;
+                background-size: 150px;
+                height: 50px;
+                border: 0px;
+                background-image: url('./img/bg_redbtn.png');
+                background-color: transparent;
+                color: white;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 2em;
+                
+            }
+            .linktoMap .mapicon{
+                flex-direction: column;
+                margin: 0px;
+                text-align: center;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .linktoMap .mapicon p{
+                display: none;
+            }
+            .mapicon .mapicon1{
+                margin-bottom: 3em;
+            }
+            .mapicon div{
+                display: inline-block;
+            }
+            .mapicon1, .mapicon2{
+                display: block;
+            }
+            #mappark{
+                margin-right: 0px;
+            }
+            /* 고정 이미지 */
+            .img{
+                flex-direction: column;
+                justify-content: start;
+                align-items: flex-start;
+            }
+            .img h3,  h1{
+                font-size: 1em;
+            }
+            .img p{
+                font-size: 0.8em;
+                margin-bottom: 2em;
+            }
+            .img .fixedRight{
+                display: flex;
+                flex-direction: row;
+            }
+            .img .fixedRight #imginimg{
+                width: 30px;
+            }
+            /* 하단 메뉴 */
+            .bottommenu{
+                display: none;
+            }
+            /* 푸터 */
+            .footer{
+                padding: 1em 2em;
+                min-width: 0;
+            }
+            .footer .contains{
+                flex-direction: column-reverse;
+            }
+            .footer .footerRight{
+                display: flex;
+                justify-content: space-between;
+
+                margin-bottom: 2em;
+            }
+            .footer p, h5{
+                font-size: 14px;
+            }
+            .footerRight a{
+                border-right: 0px;
+                font-size: 18px;
+            }
+        }
+
+    </style>
+</head>
+<body onload="setresponsive()">
+
+    <div id="#wrapper"> 
+        <!-- 헤더 : 로고와 메뉴 부분 -->
+        <header class="header">
+            <div class="contains first" id="first" onmouseover="showsecond(this)">
+                <a href="./index.html"><img id="headerlogo" src="./img/logo.png" alt=""></a>
+                <div id="headlist">
+                    <ul class="mainmenu" onclick="changescreen()">
+                        <li>메뉴소개</li>
+                    </ul>
+                    <ul class="mainmenu"> 
+                        <li>매장소개</li>
+                    </ul>
+                    <ul class="mainmenu">
+                        <li>이벤트</li>
+                    </ul>
+                    <ul class="mainmenu">
+                        <li>브랜드스토리</li>
+                    </ul>
+                </div>
+                <button><strong>딜리버리 주문</strong></button>
+            </div>
+
+            <div id="secondwrap" onmouseleave="showfirst(this)">
+                <div class="contains second" id="second">
+                    <a href="./index.html"><img id="headerlogo" src="./img/logo.png" alt=""></a>
+                    <div id="headlist">
+                        <ul class="mainmenu" onclick="changescreen()">
+                            <li>메뉴소개</li>
+                            <ul class="submenu">
+                                <li>스페셜&할인팩</li>
+                                <li>프리미엄</li>
+                                <li>와퍼</li>
+                                <li>주니어&버거</li>
+                                <li>올데이킹&치킨버거</li>
+                                <li>사이드</li>
+                                <li>음료&디저트</li>
+                                <li>아침메뉴</li>
+                            </ul>
+                        </ul>
+                        <ul class="mainmenu"> 
+                            <li>매장소개</li>
+                            <ul class="submenu">
+                                <li>매장찾기</li>
+                            </ul>
+                        </ul>
+                        <ul class="mainmenu">
+                            <li>이벤트</li>
+                            <ul class="submenu">
+                                <li>이벤트</li>
+                            </ul>
+                        </ul>
+                        <ul class="mainmenu">
+                            <li>브랜드스토리</li>
+                            <ul class="submenu">
+                                <li>브랜드스토리</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <button><strong>딜리버리 주문</strong></button>
+                </div>
+            </div>
+        </header>
+        <div class="hiddenmenuwrap">
+                <div class="VirtualView">
+                    <button class="circleBt" id="circleBt" onclick="showLeftMenu(this); return false;"></button>
+                    <a href="./index.html"><img src="./img/logo.png" alt=""></a>
+                    <a href="./login.html"><button id="hiddenredbtn">딜리버리</button></a>
+                </div>
+                <div class="hideMenuBody" id="hideMenuBodyId">
+                    <button id="closebtn" onclick="closeLeftMenu(); return false;"></button>
+                    <ul class="mainmenu">
+                        <li>메뉴소개</li>
+                        <ul class="submenu">
+                            <li><a href="./menu_special.html">스페셜&할인팩</a></li>
+                            <li><a href="./menu_premium.html">프리미엄</a></li>
+                            <li><a href="./WP_manu.html">와퍼</a> </li>
+                            <li><a href="./JWP_manu.html">주니어&버거</a></li>
+                            <li><a href="./menu_alldayking.html">올데이킹&치킨버거</a></li>
+                            <li><a href="./menu_side.html">사이드</a></li>
+                            <li><a href="">음료&디저트</a></li>
+                            <li><a href="">아침메뉴</a></li>
+                        </ul>
+                    </ul>
+                    <ul class="mainmenu"> 
+                        <li>매장소개</li>
+                        <ul class="submenu">
+                            <li><a href="./map_popup.html">매장찾기</a></li>
+                        </ul>
+                    </ul>
+                    <ul class="mainmenu">
+                        <li>이벤트</li>
+                        <ul class="submenu">
+                            <li><a href="./event.html">이벤트</a></li>
+                        </ul>
+                    </ul>
+                    <ul class="mainmenu">
+                        <li>브랜드스토리</li>
+                        <ul class="submenu">
+                            <li><a href="">브랜드스토리</a></li>
+                        </ul>
+                    </ul>   
+                </div>
+            </div>
+        </div>
+
+        <div id="contentsdiv">
+            
+           <p>여기가 컨텐츠를 넣을 공간입니다</p> 
+           <p>media 쿼리 min-width:600px 적용</p>
+
+        </div>
+
+
+        
+
+
+        <!-- 맨 아래 메뉴 섹션 -->
+        <section class="bottommenu">
+            <div class="bottomlist contains">
+                <ul>
+                    <li>메뉴</li>
+                    <li><a href="">스페셜&할인팩</a></li>
+                    <li><a href="">프리미엄</a></li>
+                    <li><a href="">와퍼</a></li>
+                    <li><a href="">주니어&버거</a></li>
+                    <li><a href="">올데이킹&치킨버거</a></li>
+                    <li><a href="">사이드</a></li>
+                    <li><a href="">음료&디저트</a></li>
+                    <li><a href="">아침메뉴</a></li>
+                </ul>
+                <ul>
+                    <li>매장소개</li>      
+                    <li><a href="">매장찾기</a></li>         
+                </ul>
+                <ul>
+                    <li>이벤트</li>
+                    <li><a href="">이벤트</a></li>
+                    <li><a href="">신규매장</a></li>
+                </ul>
+                <ul>
+                    <li>브랜드스토리</li>
+                    <li><a href="">버거킹 스토리</a></li>
+                    <li><a href="">WHY 버거킹</a></li>
+                    <li><a href="">버거킹 NEWS</a></li>
+                </ul>
+                <ul>
+                    <li>고객센터</li>
+                    <li><a href="">공지사항</a></li>
+                    <li><a href="">버거킹앱이용안내</a></li>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">문의</a></li>
+                    <li><a href="">가맹점모집</a></li>
+                    <li><a href="">인재채용</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 푸터 - 정보 -->
+        <footer class="footer">
+            <div class="contains">
+                <div class="footerLeft">
+                    <h5><strong>BURGER KING</strong></h5><br>
+                    <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505 </p>
+                    <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
+                    <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
+                    <img src="./img/icons8-facebook-250.png" alt="" width="50px">
+                    <img src="./img/icons8-instagram-150.png" alt="" width="50px">
+                </div>
+    
+                <div class="footerRight">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보취급방침</a>
+                    <a href="">법적고지</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
