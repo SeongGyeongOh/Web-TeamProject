@@ -74,14 +74,12 @@
                 leftMenuObj.removeAttribute("style");
             }
         </script>
-
     <style>
 
         @font-face {
             font-family: 'MyFont';
             src: url('./img/GodoB.ttf');
         }
-
 
         body{
             text-align: center;
@@ -90,7 +88,7 @@
         }
         body #maincontent{
             max-width: 1140px;
-            min-width: 700px;
+            min-width: 780px;
             margin-left: auto;
             margin-right: auto;
             
@@ -104,8 +102,8 @@
             min-width: 780px;
         }
 
-        /* 헤더: 로고와 이미지 부분 */
-        /* 히든메뉴 */
+ 
+        /* 히든메뉴-반응형 */
         .hiddenmenuwrap{
             display: none;
             position: relative;
@@ -127,20 +125,30 @@
             justify-content: space-between;
             padding: 0px 10px;
         }
+        .burgerBt {
+            width: 25px;
+            background-image: url('./img/icons8-menu-50.png');
+            background-size: 25px;
+            height: 25px;
+            background-color: transparent;
+            border: 0px;
+            position: relative;
+            cursor: pointer;
+        }
         .VirtualView img{
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
         }
         .VirtualView #hiddenredbtn{
-                width: 80px;
-                background-size: 80px;
-                height: 28px;
-                border: 0px;
-                background-image: url('./img/bg_redbtn.png');
-                background-color: transparent;
-                color: white;
-                
-            }
+            width: 70px;
+            background-size: 70px;
+            height: 25px;
+            border: 0px;
+            background-image: url('./img/bg_redbtn.png');
+            background-color: transparent;
+            color: white;
+            font-size: 0.8em;
+        }
         
         .hideMenuBody {
             width: 100%;
@@ -158,6 +166,7 @@
             -moz-transform: translate(-100%, 0px);
             -o-transform: translate(-100%, 0px);
         }
+
         .hideMenuBody #closebtn {
             width: 30px;
             height: 30px;
@@ -192,20 +201,8 @@
             margin-bottom: 0px;
             text-decoration: none;
         }
-        .hideMenuBody > div:hover {
-            background-color: #c5bebe;
-        }
     
-        .circleBt {
-            width: 30px;
-            background-image: url('./img/icons8-menu-50.png');
-            background-size: 30px;
-            height: 30px;
-            background-color: transparent;
-            border: 0px;
-            position: relative;
-            cursor: pointer;
-        }
+        /* 헤더: 로고와 이미지 부분 */
         .header{
             padding-top: 1em;
             padding-bottom: 1em;
@@ -300,27 +297,10 @@
             line-height: 50px;
         }
 
-
-        /* 컨텐츠 */
-
+        /* ********************컨텐츠 섹션 ********************************/
         #contentsdiv{
-            padding-top: 300px;
-            z-index: 1;
-            height: 1000px;
-            text-align: center;
+            padding-top: 100px;
         }
-
-        @media screen and(min-width: 600px){
-            
-        }
-
-
-
-
-
-
-        /* 컨텐츠 */
-
 
 
         /* 하단 메뉴 */
@@ -366,11 +346,9 @@
             padding-bottom: 2em;
             padding-left: 5em;
             padding-right: 5em;
-            color: rgb(81, 89, 97);
+            color: rgb(103, 112, 121);
             background-color: rgb(31, 29, 29);
-            min-width: 734px;
-        }
-        .footer .contains{
+            min-width: 780px;
             display: flex;
             flex-direction: row;
             justify-content: space-around; 
@@ -385,14 +363,20 @@
             width: 25px;
             margin-right: 0.5em;
         }
+        .footer .footerRight{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2em;
+            }
         .footerRight a{
-            color: rgb(81, 89, 97);         
+            color: rgb(103, 112, 121);       
             padding: 0em 0.5em;
             border-right: 1px solid rgb(81, 89, 97);
             font-size: 0.8em;
+            height: 15px;
         }
 
-        @media screen and (max-width:600px){
+        @media screen and (max-width:700px){
             /* 전체화면 - 꽉 차게 */
             body #maincontent{
                 min-width: 100%;
@@ -407,98 +391,6 @@
             .header {
                 display: none;
             }
-            /* 움직이는 이미지 */
-            .carousel {
-                display: none;
-            }
-            #demo2{
-                margin-top: -500px;
-                display: block;
-            }   
-            .carousel .carousel-inner img{
-            margin-top: 0em;
-        }
-            /* sns 링크 */
-            .linktoSNS .wrapsns{
-                flex-direction: column;
-                align-items: center;
-            }
-            .linktoSNS #img1,#img2,#img3{
-                width: 50px;
-                margin-top: 1.8em;
-            }
-            .linktoSNS strong{
-                font-weight: 0;
-                font-size: 0.7em;
-            }
-            .linktoSNS .wrapsns :nth-child(2){
-                margin-left: 0em;
-                text-align: center;
-            }
-            /* 배달 이미지 링크 */
-            .linktoDel{
-                flex-direction: column;
-                justify-content: center;
-            }
-            /* 지도 링크 */
-            .linktoMap{
-                text-align: center;
-            }
-            .linktoMap button{
-                width: 150px;
-                background-size: 150px;
-                height: 50px;
-                border: 0px;
-                background-image: url('./img/bg_redbtn.png');
-                background-color: transparent;
-                color: white;
-                margin-left: auto;
-                margin-right: auto;
-                margin-bottom: 2em;
-                
-            }
-            .linktoMap .mapicon{
-                flex-direction: column;
-                margin: 0px;
-                text-align: center;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .linktoMap .mapicon p{
-                display: none;
-            }
-            .mapicon .mapicon1{
-                margin-bottom: 3em;
-            }
-            .mapicon div{
-                display: inline-block;
-            }
-            .mapicon1, .mapicon2{
-                display: block;
-            }
-            #mappark{
-                margin-right: 0px;
-            }
-            /* 고정 이미지 */
-            .img{
-                flex-direction: column;
-                justify-content: start;
-                align-items: flex-start;
-            }
-            .img h3,  h1{
-                font-size: 1em;
-            }
-            .img p{
-                font-size: 0.8em;
-                margin-bottom: 2em;
-            }
-            .img .fixedRight{
-                display: flex;
-                flex-direction: row;
-            }
-            .img .fixedRight #imginimg{
-                width: 30px;
-            }
             /* 하단 메뉴 */
             .bottommenu{
                 display: none;
@@ -507,28 +399,30 @@
             .footer{
                 padding: 1em 2em;
                 min-width: 0;
-            }
-            .footer .contains{
                 flex-direction: column-reverse;
             }
+
             .footer .footerRight{
                 display: flex;
                 justify-content: space-between;
-
-                margin-bottom: 2em;
+                flex-direction: row;
             }
             .footer p, h5{
                 font-size: 14px;
             }
             .footerRight a{
                 border-right: 0px;
-                font-size: 18px;
+                font-size: 1em;
+                margin-bottom: 2em;
             }
         }
 
     </style>
+
 </head>
-<body onload="setresponsive()">
+
+
+<body>
 
     <div id="#wrapper"> 
         <!-- 헤더 : 로고와 메뉴 부분 -->
@@ -594,7 +488,7 @@
         </header>
         <div class="hiddenmenuwrap">
                 <div class="VirtualView">
-                    <button class="circleBt" id="circleBt" onclick="showLeftMenu(this); return false;"></button>
+                    <button class="burgerBt" id="circleBt" onclick="showLeftMenu(this); return false;"></button>
                     <a href="./index.html"><img src="./img/logo.png" alt=""></a>
                     <a href="./login.html"><button id="hiddenredbtn">딜리버리</button></a>
                 </div>
@@ -635,11 +529,11 @@
             </div>
         </div>
 
-        <div id="contentsdiv">
-            
-           <p>여기가 컨텐츠를 넣을 공간입니다</p> 
-           <p>media 쿼리 min-width:600px 적용</p>
 
+        <!-- 컨텐츠 섹션 -->
+        <div id="contentsdiv">
+           <p>여기가 컨텐츠를 넣을 공간입니다</p> 
+           <p>media 쿼리 max-width:700px 적용</p>
         </div>
 
 
@@ -689,25 +583,22 @@
 
         <!-- 푸터 - 정보 -->
         <footer class="footer">
-            <div class="contains">
-                <div class="footerLeft">
-                    <h5><strong>BURGER KING</strong></h5><br>
-                    <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505 </p>
-                    <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
-                    <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
-                    <img src="./img/icons8-facebook-250.png" alt="" width="50px">
-                    <img src="./img/icons8-instagram-150.png" alt="" width="50px">
-                </div>
-    
-                <div class="footerRight">
-                    <a href="">이용약관</a>
-                    <a href="">개인정보취급방침</a>
-                    <a href="">법적고지</a>
-                </div>
+            <div class="footerLeft">
+                <h5><strong>BURGER KING</strong></h5><br>
+                <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505 </p>
+                <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
+                <p>Copyright 2019 BKR Co., Ltd. All right Reserved</p>
+                <img src="./img/icons8-facebook-250.png" alt="" width="50px">
+                <img src="./img/icons8-instagram-150.png" alt="" width="50px">
+            </div>
+
+            <div class="footerRight">
+                <a href="">이용약관</a>
+                <a href="">개인정보취급방침</a>
+                <a href="">법적고지</a>
             </div>
         </footer>
     </div>
-
 </body>
 
 </html>
