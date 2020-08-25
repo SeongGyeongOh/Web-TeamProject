@@ -7,12 +7,23 @@
 
         
         <style>
+            @font-face {
+                font-family: "My font";
+                src: url(./font/SCDream5.otf);
+            }
+
+            @font-face {
+                font-family: "My boldfont";
+                src: url(./font/SCDream9.otf);
+            }
+
             body{
                 min-height: 100%;
                 color: black;
                 background: #f2ebe6;
                 word-wrap: normal;
                 word-break: keep-all;
+                font-family: "My font", serif;
             }
 
             body, html{
@@ -31,12 +42,12 @@
 
             .header_offtype{padding-top: 168px;}
 
-            .subWrap02{
+            .subWrap{
                 margin: 0 auto;
                 padding: 168px 0 272px;
             }
 
-            .subWrap02 .headerWrap{
+            .subWrap .headerWrap{
                 position: fixed;
                 left: 0;
                 top: 0;
@@ -51,7 +62,7 @@
 
             .head_menuWrap, .headerWrap{background: white;}
 
-            .subWrap02 .head_menuWrap{
+            .subWrap .head_menuWrap{
                 position: relative;
                 background: #e22219;
             }
@@ -66,7 +77,7 @@
                 background: white;
             }
 
-            .subWrap02 .head_menuWrap .web_container{
+            .subWrap .head_menuWrap .web_container{
                 height: 168px;
                 padding-top: 48px;
             }
@@ -83,15 +94,16 @@
                 padding: 0 20px;
             }
 
-            .subWrap02 .head_menuWrap .logo{
+            .subWrap .head_menuWrap .logo{
                 display: inline-block;
                 position: static;
                 width: auto;
                 height: 120px;
                 padding-left: 80px;
                 padding-right: 10px;
-                font-weight: 700;
-                font-size: 2.25rem;
+                font-family: "My boldfont", serif;
+                font-weight: bold;
+                font-size: 2.125rem;
                 color: #fff;
                 text-indent: 0;
                 line-height: 120px;
@@ -105,7 +117,7 @@
 
             .utilWrap{
                 position: absolute;
-                right: 20px;
+                right: 5px;
                 top: 0;
             }
 
@@ -115,15 +127,15 @@
                 float: left;
                 height: 48px;
                 padding: 0 14px;
-                font-size: 0.875em;
+                font-size: 0.85em;
                 line-height: 48px;
             }
 
-            .subWrap02 .utilWrap a{color: white;}
+            .subWrap .utilWrap a{color: white;}
 
-            .subWrap02 .utilWrap a:before{background: #e84e47;}
+            .subWrap .utilWrap a:before{background: #e84e47;}
 
-            .utilWrap a:before{
+            .utilWrap .top:before{
                 content: "";
                 position: absolute;
                 left: 0;
@@ -158,7 +170,7 @@
                 border-radius: 5px;
             }
 
-            .subWrap02 .GNBWrap{display: none;}
+            .subWrap .GNBWrap{display: none;}
 
             .GNBWrap{
                 position: relative;
@@ -231,33 +243,26 @@
                 top: auto;
                 right: 20px;
                 bottom: 35px;
-                background: url(./images/blackbtn.png) no-repeat 50%;
-            }
-
-            .btn_join, .btn_order{
                 position: absolute;
-                right: 0;
-                top: 50%;
                 width: 160px;
                 height: 50px;
                 margin-top: -25px;
-                font-weight: 700;
-                font-size: 1.25rem;
-                color: #fff;
+                font-family: "My boldfont", serif;
+                font-weight: bold;
+                font-size: 1.125rem;
+                color: white;
                 text-align: center;
                 line-height: 50px;
+                background: url(./images/blackbtn.png) no-repeat 50%;
             }
 
-            .btn_join>*, .btn_order>*{
+            .btn_join>*{
                 display: inline-block;
                 padding: 0 20px 0 0;
-                background: url(./images/right.gif) no-repeat 100%;
+                background: url(./images/bigright.png) no-repeat 100%;
             }
 
-            h1, h2, h3, h4, h5, h6{
-                font-weight: 900;
-                font-size: 1em;
-            }
+            h1, h2, h3, h4, h5, h6{font-weight: bold;}
 
             .title_btn{display: none;}
 
@@ -292,7 +297,7 @@
                 outline: none;
             }
 
-            .page_navi>:before{
+            .page_navi .login:before{
                 content: "";
                 float: left;
                 width: 4px;
@@ -301,18 +306,26 @@
                 background: url(./images/right.gif) no-repeat 50%;
             }
 
-            .contentsBox01{padding: 50px 0 45px;}
+            .contentsBox01{background: white;}
 
             .loginWrap>.web_container{
                 padding: 75px 20px 0;
                 background: url(./images/background.gif) no-repeat 100% 100%;
             }
 
-            .loginWrap .page_tit02{font-size: 2.5rem;}
+            .loginWrap .page_tit02{
+                font-size: 2.25rem;
+                font-weight: bold;
+                font-family: "My boldfont", serif;
+            }
 
             .bg_w{background: white;}
 
-            .loginWrap .page_tit02 em{margin-bottom: 11px;}
+            .loginWrap .page_tit02 em{
+                margin-bottom: 11px;
+                letter-spacing: -2px;
+                
+            }
 
             .loginWrap .page_tit02>*{display: block;}
 
@@ -405,6 +418,12 @@
                 width: 100%;
                 padding: 0 25px 3px 5px;
             }
+
+            ::placeholder{
+                color: #ccc;
+                font-family: "My font", serif;
+                font-size: 1.5rem;
+            }
             
             input{
                 display: inline-block;
@@ -442,11 +461,188 @@
                 background: url(./images/delete.png) no-repeat 50%;
                 background-size: 18px auto;
             }
+
+            .btn_view01{
+                width: 40px;
+                height: 40px;
+                background: url(./images/show.png) no-repeat 50%;
+                text-indent: -9999em;
+            }
+
+            .inpbox+.inpbox{position: relative;}
+
+            .loginWrap .login_option{margin: 20px 0;}
+
+            .loginWrap .login_option label{margin-right: 20px;}
+
+            label, label>span{vertical-align: middle;}
+
+            input[type=checkbox]{
+                position: absolute;
+                margin: 0;
+                vertical-align: middle;
+                font-size: 1em;
+                border: none;
+                border-radius: 0;
+                opacity: 0;
+            }
+
+            input[type=checkbox]+:before{
+                content: "";
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                margin-right: 13px;
+                vertical-align: middle;
+                background: url(./images/check.png) no-repeat 0;
+            }
+
+            .loginWrap .login .c_btn{
+                margin: 30px 0;
+                text-align: left;
+            }
+
+            .c_btn{
+                margin: 40px 0 80px;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .loginWrap .loginWrap .c_btn a{
+                float: left;
+                width: 216px;
+            }
+
+            .btn01.m.red{
+                background: url(./images/redbtn.png) no-repeat 0 0;
+                background-size: 100% 100%;
+            }
+
+            .c_btnitem2 a{
+                float: left;
+                width: 49%;
+                width: calc(50% 4px);
+            }
+
+            .btn01.m{
+                width: 216px;
+                height: 68px;
+                font-size: 1.5rem;
+                line-height: 46px;
+                background: url(./images/blackbtn.png) no-repeat 50%;
+                background-size: 100% 100%;
+                border-radius: 0;
+            }
+
+            .btn01{
+                display: inline-block;
+                width: 256px;
+                height: 68px;
+                font-size: 1.5rem;
+                padding: 12px 10px 10px;
+                font-weight: 700;
+                color: white;
+                text-align: center;
+                line-height: 46px;
+                background: url(./images/blackbtn.png) no-repeat 50%;
+                background-size: 100% 100%;
+                border-radius: 0;
+            }
+
+            .loginWrap .login .login_menu{overflow: hidden;}
+
+            .loginWrap .login .login_menu>a:first-child{padding-left: 0;}
+
+            .loginWrap .login .login_menu>a{
+                position: relative;
+                float: left;
+                padding: 5px 18px;
+                font-size: 1.125rem;
+            }
+
+            .loginWrap .login .login_menu .password:before{
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 1px;
+                height: 18px;
+                margin-top: -9px;
+                background: #e8e8e8;
+            }
+
+            .simple_login{
+                width: 50%;
+                max-width: 485px;
+                padding-left: 8.74%;
+            }
+
+            .t1t01:first-child{margin-top: 0;}
+
+            .tit_ico.lock:before{background-image: url(./images/lock.png);}
+
+            .tit_ico:before{
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 40px;
+                height: 40px;
+                background-repeat: no-repeat;
+                background-position: 0;
+            }
+
+            .simple_login .list{
+                max-width: 338px;
+                margin: 15px 0 20px 46px;
+            }
+
+            .simple_login .list li{margin-bottom: 12px;}
+
+            .simple_login .list li:first-child{background: none;}
+
+            .simple_login .list a{
+                position: relative;
+                display: block;
+                height: 64px;
+                padding: 5px 5px 5px 70px;
+                font-size: 1.25rem;
+                color: hsla(0, 0%, 100%, .8);
+                line-height: 54px;
+                text-align: center;
+                background: #1ec800 url(./images/naver.gif) no-repeat 21px;
+                border-radius: 6px;
+                box-shadow: 1px 1px 1px 1px lavender;
+            }
+
+            .simple_login .list .kakao a{                
+                color: black;
+                background: #ffeb00 url(./images/kakao.gif) no-repeat 21px;
+            }
+
+            .simple_login .list .apple a{
+                color: white;
+                background: black url(./images/apple.gif) no-repeat 21px;
+            }
+
+            .simple_login .list a:before{
+                content: "";
+                position: absolute;
+                left: 65px;
+                top: 0;
+                width: 1px;
+                height: 100%;
+                background: white;
+                opacity: .2;
+            }
+
+            .simple_login .list .kakao a:before{opacity: .6;}
+
         </style>
     </head>
     <body>
         <div id="app">
-            <div class="subWrap02 header_offtype">
+            <div class="subWrap header_offtype">
                 <div class="headerWrap">
                     <div class="head_menuWrap">
                         
@@ -455,13 +651,13 @@
                                 <span>버거킹</span>
                             </h1>
                             <div class="WEB utilWrap">
-                                <a>
+                                <a href="https://www.burgerking.co.kr">
                                     <span>브랜드홈</span>
                                 </a>
-                                <a>                                    
+                                <a href="#" class="top">                                    
                                     <span>로그인</span>
                                 </a>
-                                <a>                                    
+                                <a href="#" class="top">                                    
                                     <span>고객센터</span>
                                 </a>
                             </div>
@@ -555,10 +751,10 @@
                     <div class="WEB locationWrap">
                         <div class="web_container">
                             <div class="page_navi">
-                                <a href="#/home" class>
+                                <a href="https://www.burgerking.co.kr">
                                     <span>HOME</span>
                                 </a>
-                                <a>
+                                <a href="#" class="login">
                                     <span>로그인</span>
                                 </a>
                             </div>
@@ -608,18 +804,18 @@
                                             </label>
                                         </div>
                                         <div class="c_btn item2">
-                                            <a class="btn01 m red">
+                                            <a href="#" class="btn01 m red">
                                                 <span>로그인</span>
                                             </a>
-                                            <a href="#/join" class="btn01 m">
+                                            <a href="#" class="btn01 m">
                                                 <span>회원가입</span>
                                             </a>
                                         </div>
                                         <div class="login_menu">
-                                            <a href="#/idsearch" class>
+                                            <a href="#">
                                                 <span>아이디 찾기</span>
                                             </a>
-                                            <a href="#/pwsearch" class>
+                                            <a href="#" class="password">
                                                 <span>비밀번호 찾기</span>
                                             </a>
                                         </div>
@@ -631,13 +827,18 @@
                                     </h3>
                                     <ul class="list">
                                         <li class="naver">
-                                            <a>
+                                            <a href="https://nid.naver.com/oauth2.0/authorize?client_id=UbN0KyzxcY4p6ANJ9Zou&response_type=code&redirect_uri=https%3A%2F%2Fwww.burgerking.co.kr%2FnaverLogin&state=2t0tcmtcf2elab0c5bu130i0ug" onclick="window.open(this.href,'_blank', 'width=504px, height=642px'); return false;">
                                                 <span>네이버 로그인</span>
                                             </a>
                                         </li>
                                         <li class="kakao">
-                                            <a>
+                                            <a href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Fwww.burgerking.co.kr%253A80%252FkakaoLogin%26client_id%3D7fb29396f0f53882878cabebd1287433" onclick="window.open(this.href, '_blank', 'width=483px, height=499px'); return false;">
                                                 <span>카카오톡 로그인</span>
+                                            </a>
+                                        </li>
+                                        <li class="apple">
+                                            <a href="https://appleid.apple.com/auth/authorize?client_id=kr.co.hybrid.burgerking.apple.login&redirect_uri=https%3A%2F%2Fwww.burgerking.co.kr%2Foauth2%2Fredirect%2Fapple&response_type=code&response_mode=form_post&scope=name+email&state=aeee529f-344b-41b0-8236-0a8ead90f5e8" onclick="window.open(this.href, '_blank', 'width=500px, height=499px'); return false;">
+                                                <span>애플 로그인</span>
                                             </a>
                                         </li>
                                     </ul>
