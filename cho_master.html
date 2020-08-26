@@ -431,11 +431,12 @@
             position: fixed;
             z-index: 1;
             top: 0;
-            left: 0;
-            background-color: #111;
+            right: 0;
+            background-color: white;
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
+            
             }
 
             .sidenav a {
@@ -454,9 +455,9 @@
             .sidenav .closebtn {
             position: absolute;
             top: 0;
-            right: 25px;
+            right:  0px;
             font-size: 36px;
-            margin-left: 50px;
+            margin-right: 50px;
             }
 
             #main {
@@ -469,6 +470,14 @@
             .sidenav a {font-size: 18px;}
             }
             /* 여기까지 */
+
+            #btn1 {
+                height: 10%;
+                margin-bottom: 10px;
+                border: 0;
+                outline: 0;
+
+            }
     </style>
 
 </head>
@@ -619,10 +628,10 @@
                 });
                 
                 
-                var phrmacys=[
-                    ["신설동역점", 37.576103, 127.023527],
+                var phrmacys= [
+                    [id='aaa()',"신설동역점", 37.576103, 127.023527],
                     ["황학이마트점", 37.570873, 127.021328],
-                    ["신당역점", 37.565941, 127.016414],
+                    ["신당역점\n\n딜리버리 킹오더 24시간매장 아침메뉴\n\n주소 : 서울특별시 중구 다산로 258 \n연락처 : 02-2253-0332\n이용시간 : 매장 Cleaning Day[Close]:매월\n              셋째주 월요일 02:00 ~ 08:00\n딜리버리 : 24시간 운영\n킹오더 : 08 - 23:45\n아침메뉴 : 04:00 - 10:00", 37.565941, 127.016414],
                     ["약수역점", 37.556155, 127.011703],
                     ["안암오거리점", 37.583010, 127.029115],
                     ["혜화역점", 37.583408, 127.002190],
@@ -650,7 +659,7 @@
                     });
 
                     m.addListener('click', function(){
-                        alert(this.getTitle());
+                        alert(this.getTitle('a+'));
                     })
                 }
 
@@ -661,23 +670,52 @@
         </div>
 
         <!-- 부트 -->
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
+        <div id="mySidenav" class="sidenav" >
+
+            <button type="button" class="btn btn-outline">가까운매장</button>
+            <button type="button" class="btn btn-outline">매장명검색</button>
+            <button type="button" class="btn btn-outline">지역검색</button>
+            <!-- <a href="#">About</a>
             <a href="#">Services</a>
             <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="#">Contact</a> -->
+          <ul>
+              <div>
+                  <li>
+                    <p>
+                        <strong>신설동점</strong>
+                    </p>    
+                  </li>
+              </div>
+              <div>
+                  <p>
+                      <span>서울 특별시 종로구 종로 94</span>
+                      <span></span>
+                  </p>
+                  <p>
+                      <span>02-2285-4838</span>
+                  </p>
+              </div>              
+          </ul>
+
+          <button >
+              <span><a onclick="aaa">클릭</a></span>
+              
+          </button>
+          
+
           </div>
           
           <div id="main">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#8818; </span>
+            <span style="font-size:25px;cursor:pointer" onclick="openNav()">o</span>
+            <span style="font-size:25px;cursor:pointer" onclick="closeNav('O')">x</span>
           </div>
           
           <script>
           function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("mySidenav").style.marginTop= "65px";;
-            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("mySidenav").style.marginTop= "40px";
+            document.getElementById("main").style.marginLeft = "-250px";
           }
           
           function closeNav() {
