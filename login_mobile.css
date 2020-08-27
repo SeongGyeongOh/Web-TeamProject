@@ -1,3 +1,8 @@
+body{
+    display: flex;
+    width: 100%;
+}
+
 #app{    
     position: relative;
     min-width: 100%;
@@ -80,7 +85,7 @@ button{
     left: 0;
     top: 0;
     right: auto;
-    width: 768%;
+    width: 100%;
     height: 100%;
     background: #f8f8f8;
     overflow: auto;
@@ -100,14 +105,13 @@ section{padding-top: 57px;}
 .contentsBox01{padding: 0;}
 
 .loginWrap>.webContainer{
-    max-width: 768px;
     padding: 0;
     background: none;
 }
 
 .loginWrap .page_tit02{
     margin: 0;
-    padding: 32px ;
+    padding: 32px 24px 25px;
     font-size: 1.1rem;
     line-height: 130%;
     font-family: "My boldfont", serif;
