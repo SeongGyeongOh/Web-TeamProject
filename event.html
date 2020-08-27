@@ -89,6 +89,11 @@
                 color: white;
             }
 
+            nav a:hover{
+                text-decoration: none;
+                color: white;
+            }
+
             section{
                 margin-top: 30px;
                 display: flex;
@@ -100,6 +105,7 @@
             section div h1{
                 display: flex;
                 font-size: 40px;
+                margin-right: 320px;
             }
 
             section div ul{
@@ -120,12 +126,13 @@
                 outline :0;
             }
 
-            section div ul li button:hover{
-                color: black;
+            #all{
+                color: red;
+                border-bottom: 2px solid red;
             }
 
-            section div ul li button:active{
-                color: red;
+            section div ul li button:hover{
+                color: black;
             }
 
             .tab{
@@ -148,11 +155,11 @@
 
             .tab #eventTag{
                 border: 2px solid black;
-                border-bottom: 0;
             }
 
             .tab #newTag{
-                border-bottom: 2px solid black;
+                /* border-bottom: 2px solid black; */
+                color: silver;
             }
             
             .event{
@@ -163,17 +170,14 @@
 
             .event table tr td{
                 padding: 20px;
-            }   
-
-            .event table tr td button{
-                border: 0;
-                outline: 0;
-            }
+            }  
 
             .event table tr td p{
                 font-weight: bold;
                 font-size: 1.5em;
-            } 
+            }
+
+            
 
             #more{
                 text-align: center;
@@ -199,7 +203,9 @@
             footer div{
                 padding-top: 30px;
                 display: flex;
-                justify-content: center; 
+                justify-content: center;
+                flex-shrink: 1;
+                min-width: 100%;
             }
 
             footer div ul{
@@ -231,7 +237,7 @@
                 /* display: flex; */
                 background-color: #333333;
                 color: #777777;
-                height: 240px;
+                height: 256px;
                 /* justify-content: space-around; */
                 padding-top: 16px;
             }
@@ -252,6 +258,7 @@
 
             .end div p{
                 margin: 0;
+                font-size: 0.8em;
             }
 
             .end div ul{
@@ -288,6 +295,10 @@
  
         <link rel="stylesheet" href="./mobileEvent.css" media="(max-width:780px)">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <script src="./event.js" type="text/javascript" media="(min-width:780px)"></script>
+
     </head>
     <body>
         <div class="page">
@@ -305,6 +316,7 @@
                             <li><span>브랜드스토리</span></li>
                         </ul>
                     </ul>
+                    <!-- login.html로 이동 -->
                     <a href="#" id="Del">딜리버리주문&#62;</a>
                     <button><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAkCAYAAADy19hsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUQ1OUFGQzkwMzU1MTFFOUI3MzJCMDYzRjQ1RDBCRjMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUQ1OUFGQ0EwMzU1MTFFOUI3MzJCMDYzRjQ1RDBCRjMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFRDU5QUZDNzAzNTUxMUU5QjczMkIwNjNGNDVEMEJGMyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFRDU5QUZDODAzNTUxMUU5QjczMkIwNjNGNDVEMEJGMyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpNDwoEAAAC6SURBVHja7Jc7CgIxGIT/aCNYuIWN17GQRbDaS6x3Fix8bHyBXkCdXyLsCUJmmYEvSfkRQjIxM6vBGXwKxx3rkBYL48ghJHuajIwsEs4hfCfyjWMMe7ACk8JlX6ANvZ2eEQi/TVGU/Nmku7j0thbdla2tXdTWJDwE4Ujke/K2tgNLMC1c9gq2eoUUJXNCb64Kd33+a0QDHgRtzR0b39kbmJOciE5tTcJDEO6IfH+ua/8rEVxrR3f9CjAAQ0zAUKWuqPwAAAAASUVORK5CYII=" alt="menu"></button>
                 </div>
@@ -312,7 +324,7 @@
             <nav>
                 <!-- index.html로 이동 -->
                 <a href="./index.html">HOME</a>
-                <span>   &#62;이벤트   &#62;</span>
+                <span id="tabChange">   &#62;이벤트   &#62;</span>
                 <span id="btnChange">전체</span>
             </nav>
             <section>
@@ -321,9 +333,9 @@
                 </div>
                 <div>
                     <ul>
-                        <li><button type="button">전체</button></li>
-                        <li><button type="button">진행중</button></li>
-                        <li><button type="button">종료</button></li>
+                        <li><button id="all" type="button">전체</button></li>
+                        <li><button id="ing" type="button">진행중</button></li>
+                        <li><button id="end" type="button">종료</button></li>
                     </ul>
                 </div>
             </section>
@@ -337,77 +349,77 @@
                 <table>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk01.png" alt="이벤트1"></button>
+                            <a href="./bkImage/bk01.png"><img src="./bkImage/bk01.png" alt="이벤트1"></a>
                             <p><span>2020.08.24~2020.08.30</span></p>
                         </td>
                         <td>
-                            <button><img src="./bkImage/bk02.png" alt="이벤트2"></button>
+                            <a href="./bkImage/bk02.png"><img src="./bkImage/bk02.png" alt="이벤트2"></a>
                             <p><span>2020.08.24~2020.08.30</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk03.png" alt="이벤트3"></button>
+                            <a href="./bkImage/bk03.png"><img src="./bkImage/bk03.png" alt="이벤트3"></a>
                             <p><span>2020.08.17~2020.08.23</span></p>
                         </td>
                         <td>
-                            <button><img src="./bkImage/bk04.png" alt="이벤트4"></button>
+                            <a href="./bkImage/bk04.png"><img src="./bkImage/bk04.png" alt="이벤트4"></a>
                             <p><span>2020.08.11~2020.08.31</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk05.png" alt="이벤트5"></button>
+                            <a href="./bkImage/bk05.png"><img src="./bkImage/bk05.png" alt="이벤트5"></a>
                             <p><span>2020.08.10~2020.08.16</span></p>
                         </td>
                         <td>
-                            <button><img src="./bkImage/bk06.png" alt="이벤트6"></button>
+                            <a href="./bkImage/bk06.png"><img src="./bkImage/bk06.png" alt="이벤트6"></a>
                             <p><span>2020.08.10~2020.08.16</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk07.png" alt="이벤트7"></button>
+                            <a href="./bkImage/bk07.png"><img src="./bkImage/bk07.png" alt="이벤트7"></a>
                             <p><span>2020.08.10~2020.09.30</span></p>
                         </td>
                         <td>
-                            <button><img src="./bkImage/bk08.png" alt="이벤트8"></button>
+                            <a href="./bkImage/bk08.png"><img src="./bkImage/bk08.png" alt="이벤트8"></a>
                             <p><span>2020.08.10~2020.08.16</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk09.png" alt="이벤트9"></button>
+                            <a href="./bkImage/bk09.png"><img src="./bkImage/bk09.png" alt="이벤트9"></a>
                             <p><span>2020.08.01~2020.08.31</span></p>
                         </td>
                         <td>
-                            <button><img src="./bkImage/bk10.png" alt="이벤트10"></button>
+                            <a href="./bkImage/bk10.png"><img src="./bkImage/bk10.png" alt="이벤트10"></a>
                             <p><span>2020.08.10~2020.08.16</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk11.png" alt="이벤트11"></button>
+                            <a href="./bkImage/bk11.png"><img src="./bkImage/bk11.png" alt="이벤트11"></a>
                             <p><span>2020.08.01~2020.08.31</span></p>
                         </td>
                         <td>
-                            <button><img src="./bkImage/bk12.png" alt="이벤트12"></button>
+                            <a href="./bkImage/bk12.png"><img src="./bkImage/bk12.png" alt="이벤트12"></a>
                             <p><span>2020.08.03~2020.08.09</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk13.png" alt="이벤트13"></button>
+                            <a href="./bkImage/bk13.png"><img src="./bkImage/bk13.png" alt="이벤트13"></a>
                             <p><span>2020.07.27~</span></p>
                         </td>
                         <td>
-                            <button><img src="./bkImage/bk14.png" alt="이벤트14"></button>
+                            <a href="./bkImage/bk14.png"><img src="./bkImage/bk14.png" alt="이벤트14"></a>
                             <p><span>2020.07.27~2020.08.02</span></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button><img src="./bkImage/bk15.png" alt="이벤트15"></button>
+                            <a href="./bkImage/bk15.png"><img src="./bkImage/bk15.png" alt="이벤트15"></a>
                             <p><span>2020.07.10~</span></p>
                         </td>
                     </tr>
@@ -468,12 +480,13 @@
                 </div>
                 <div id="title">
                     <img src="data:image/gif;base64,R0lGODlhuAAUAOYAAENDQ1tbWy0tLWJiYktLS11dXUBAQEdHR2lpaTExMTg4ODw8PEZGRiwsLFhYWCsrK2hoaGdnZyoqKl5eXj09PTY2NmNjY0FBQTIyMlVVVVpaWjs7O0RERDAwMFdXV1lZWWRkZDU1NS8vL2BgYElJSU5OTi4uLlFRUU1NTTQ0NFZWVkxMTEVFRVBQUFNTU2ZmZl9fX0JCQkpKSjc3Nzo6OlxcXGFhYTMzMzk5OUhISE9PTz8/P1JSUj4+PlRUVGVlZSkpKWpqagAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4RDM1MTY5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" alt="burgerking">
-                    <p>서울 종로구 상봉로 71 G 타워 2층 주식회사 비케이알&#124;전화주문 1599-0505</p>
+                    <p>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 문영주</p>
+                    <p>서울 종로구 상봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505</p>
                     <p id="copyText">Copyright 2019 BKR Co&#44;&#46; Ltd	&#46; All right Reserved</p>
-                    <a href="#">
+                    <a href="https://www.facebook.com/burgerkingkorea" target="_blank">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUI3RDQ5QUFGOTBFMTFFOEIzMkFENkZBREREMkIxQTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUI3RDQ5QUJGOTBFMTFFOEIzMkFENkZBREREMkIxQTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQjdENDlBOEY5MEUxMUU4QjMyQUQ2RkFEREQyQjFBOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQjdENDlBOUY5MEUxMUU4QjMyQUQ2RkFEREQyQjFBOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pm5gwLsAAAJPSURBVHjazJjPT+JAFMcfFZRtNCqblcSDiyHhACYkHHSTTeC4F/4KTly48kcRDhw4EO4m6omggaOA2ANmYYmksj9c9j32tYFGDTOtpd/kmzb9MfOZN9POvPHNZjMQlIr+hP6I3kZ/QPv53h/0E3qC/o5+QOsihftWBPKhD9ERdEiwAUN0B62hZ04AUTROOBp2RFG74ahJASkM8hmcVZfB/ooAbaLP0HvwPvqBvkT/WgWIYL460EWrdOG5FUqxPLSBPnUBBriOU67zVSAaM/vgnva5zheB6Gs6Avd1xHUvAfmspCLq9XqQz+chlUrNnclkRIs4YQbzD3soO250XYdcLgeappnXptOpzHgihnsjQhHZ6NRqtSUYG4oYXaZKTAem2u22eV4oFKDZbEKr1ZIpihhUAjqw06zxeGyep9Np8Pv9doo7UOxEx6pAIGC3iBA1Z0fmzVKp9H9i6nbNa/V6HRqNBqiqCtlsVupnSVPHN54uhBSPx9+8Vy6XZYB+KwufvmMKh8Oyr25IwyQSifmx3++bAzsajUIwGIRkMindGOkuM1QsFqFarc7PK5UKxGIxO8Gdd9kUvKMnAnr0ENCjwotwr2hIQAMPAQ0Uzpu8ECVi0I3ZvuMBoM7iAk3jRfe6NGGGpayDlpFf1gR0YSSQi2tqunC3BpjeYjZrzTqu0SMXYUacxb6aBj2jr1waTxOu63mVVHqLU+ndd4IZcyr9U2SzgTLKhFc2Gzy5HbP0HOdNxxKpNg3cW3Bww8oqlTOVELy9pTfkeVJoS++fAAMAeiy0HmqQgOkAAAAASUVORK5CYII=" alt="페이스북">
                     </a>
-                    <a href="#">
+                    <a href="https://www.facebook.com/burgerkingkorea" target="_blank">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QkNGMThCNTVGOTBFMTFFODg4MDFBNjVBQzlCMUQ3RTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QkNGMThCNTZGOTBFMTFFODg4MDFBNjVBQzlCMUQ3RTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCQ0YxOEI1M0Y5MEUxMUU4ODgwMUE2NUFDOUIxRDdFNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCQ0YxOEI1NEY5MEUxMUU4ODgwMUE2NUFDOUIxRDdFNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiEbjPAAAAR2SURBVHjazFhtSFtXGL735mNpMGlNNI4VbAuzCnV+29QPRumPWruBMHHir20qU4wo1XZDmD/0R0EtIvjFnNYqimi39Ye/2hURZRgn6mymFBxui+tw2ZJYo01SNdn7lhO5hph7kqntCw/nJvc95zz3nPe8H4d1u91MgCIHhAPUgBDACYCYvNsB2AGbADPgH8CLQAZnKQmxgHcAZwGqAD/AAvgd8BfAfRiEcDViyWr8H8FV+4WsWlCEOELkDHO48gch5gqEkBSgBZxijkbWAdOAlzSEkEzGIWwRzRb+6E2K81ISAS4eAxmGzHGRzHkgIbSZUOb4JJTM6ZMQnqZI5vglksz9SsQ8PxMr1LOrq+v8yMhI7traWorL5ZL40+U4blej0czn5OR8V1lZuSgwNM49jn7KY9SnAUn+epSWln4wMTFRgs8ymcwsl8v/lkgkDpZld/l6MB63vb0tczqdp7a2tnBcRqvV3uvt7f1egNQc4Jlnhc760xweHj6DZICItaam5qu8vLxVmr1YWVmRFxQUNE1PT3/a0dGxVFZW9tSPOnJ4xpHY5DccdHZ2FmHb2tp6g4YMkA9LT0+/U1dXdx3I6PC/vr6+UoFuyEGOK6QRmsBkMiXA6lgyMjIs3u+qq6uvLC4uJqDZxMTE/NzS0vIY7ItZX18/PzMzEwX/f6tUKn/d2Nh4l2JRNWLaYBkSEvIn/7fBYFAUFxffttlse6HFaDS+n5qamtvd3f1lRUXFFyqV6lWkB3uzAiGaaVRISEGjKRKJ9nnUwsLCRjTalJSUQZ1O90gsFrvATq5MTU19BtIyNzdXyD9xtM4SbUhGlX+wrJu/TUgmKSlpqL+/fxhOkTU5Ofl5T0/Pg8zMzG8cDkcYkMz21Vco1+J4voha5ufn07EdGBgY8uGrRrFdWlrSBuEkRVwwrhV9DYUOG8zYHEk7A5K4uDg9tmArud7vysvLs7CNjo6eCYLPLhJyUK7K3hc3Nzf/AG7ABD7mk5KSkg9nZ2dPLiwsKIHMtbGxMR148I36+vpHvL60hOxoPzaAUkiTH7vgxLnb29tvgeHemZyc/BzheYdkGhoabkZERLzk9RVRErKJSRJ+WlDTZtunk5aWZtXr9cVVVVVXl5eXE2BSNioq6gl458fh4eH7XAScyLdpCwIkZBLSUqvVBrPZ/B5uS3x8/J6Hk0ql7ra2tofw+PDAGSwWCXxMpEKhMFIQMnGkbrL40yoqKrpL2qbx8fEwWoMAGwvNzs5uwuf8/PyvKcqlF9TpB5yojzBqkzCyCuHgX/DOTuL03Lwcnd3Z2ZHa7Xa1J6wkJiYODQ4ODtGkHx5CeIIuC+XSjY2NCaOjox/D9sXSrBDEsqdZWVn3a2trhVzApneC5klhLzGvR/SeApLvcfGP1ddAxsivZr1DgAFgPUYyVlLFHlgGYZrwE9nTo5ZNMtcuTSn9FimlTx4RmeeklHYGctmA7v7Cm3LZ8EZex/i6sDoXRKmNhvvbYV5Y+brS05DiwN+VnoXEyYCu9P4TYAD9oMS3x6MpJgAAAABJRU5ErkJggg==" alt="인스타그램">
                     </a>
                 </div>
