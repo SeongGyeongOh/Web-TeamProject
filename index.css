@@ -1,0 +1,600 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('./img/GodoB.ttf');
+}
+
+a{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    text-align: center;
+    background-color: rgb(236, 230, 217);
+    position: relative;
+}
+body #maincontent{
+    max-width: 1140px;
+    min-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+body *{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'MyFont',sans-serif;
+}
+#wrapper{
+    display: inline;
+    min-width: 780px;
+}
+li{
+    cursor: pointer;
+}
+
+
+/* 히든메뉴-반응형 */
+.hiddenmenuwrap{
+    display: none;
+    position: relative;
+    z-index: 999;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+}
+.VirtualView {
+    width: 100%;
+    background-color: white;
+    height: 70px;
+    overflow: hidden;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+.burgerBt {
+    width: 25px;
+    background-image: url('./img/icons8-menu-50.png');
+    background-size: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: 0px;
+    position: relative;
+    cursor: pointer;
+}
+.VirtualView img{
+    width: 40px;
+    height: 40px;
+}
+.VirtualView #hiddenredbtn{
+    width: 70px;
+    background-size: 70px;
+    height: 25px;
+    border: 0px;
+    background-image: url('./img/bg_redbtn.png');
+    background-color: transparent;
+    color: white;
+    font-size: 0.8em;
+}
+
+.hideMenuBody {
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    padding-top: 30px;
+    transition: transform 600ms;
+    transform: translate(-150px, 0px);
+    -ms-transition: -ms-transform 600ms;
+    -webkit-transition: -webkit-transform 600ms;
+    -moz-transition: -moz-transform 600ms;
+    -o-transition: -o-transform 600ms;
+    -ms-transform: translate(-100%, 0px);
+    -webkit-transform: translate(-100%, 0px);
+    -moz-transform: translate(-100%, 0px);
+    -o-transform: translate(-100%, 0px);
+}
+
+.hideMenuBody #closebtn {
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    background-image: url('./img/icons8-x-50.png');
+}
+.hideMenuBody .mainmenu{
+    list-style: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: block;
+    padding-top: 2em;
+}
+.hideMenuBody .mainmenu>li{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.hideMenuBody .mainmenu ul, .mainmenu li{
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.hideMenuBody .submenu li, a{
+    display: block;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+
+/* 헤더: 로고와 이미지 부분 */
+.header{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: white;
+    font-weight: bold;
+    position: fixed;
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+    font-size: 1.1em;
+}
+.header .contains{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    min-width: 780px;
+}
+.header #headlist{
+    top: 2em;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.header #first .mainmenu>li{
+    margin-right: 2em;
+    list-style: none;
+    cursor: pointer;
+}
+.header #secondwrap{
+    display: none;
+    text-align: center;
+}
+.header #second{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 300px;
+}
+.header #second .mainmenu{
+    z-index: 999;
+    text-align: left;
+    overflow-wrap: normal;
+    position: relative;
+}
+.header #second .mainmenu>li{
+    margin-bottom: 1em;
+    margin-right: 2em;
+    flex-shrink: 1;
+    cursor: pointer;
+}
+.header #second .submenu{
+    font-size: 0.7em;
+    font-weight: -100;
+    display: block;
+    z-index: 999;
+    position: fixed;
+}
+.header #second .submenu>li, a{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* .header #second .mainmenu .submenu :last-child{
+    margin-bottom: 4em;
+} */
+.header #second li{
+    list-style: none;
+}
+.header #headerlogo{
+    width: 83px;
+}        
+.header #headlist{
+    right: 5em;
+    display: flex;
+    position: relative;
+    left: 2em;
+}
+
+.header #headlist :last-child{
+    margin-right: 0em; 
+}
+.header .contains button{
+    width: 150px;
+    height: 50px;
+    color: #ffffff;
+    background-image:url('./img/bg_redbtn.png');
+    background-size: 150px;
+    border: none;
+    font-size: 1.25rem;
+    position: relative;
+    top: 1.5em;
+    line-height: 50px;
+}
+
+
+/* 맨 위 움직이는 이미지 부분 */
+.carousel .carousel-inner img{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    margin-top: 7em;
+}
+.carousel #demo{
+    position: relative;
+    z-index: 0;
+}
+#demo2{
+    display: none;
+}
+/* 유튜브 영상 */
+.indexVideo{
+    margin: 0px;
+    padding: 0px;
+}
+#youtube{
+    width: 100%;
+    height: 300px;
+}
+/* SNS 링크 이미지 */
+.linktoSNS{
+    background-color: #683a2f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 150px;
+    margin-top: -8px;
+}
+.linktoSNS .wrapsns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+}
+.linktoSNS .wrapsns :nth-child(2){
+    margin-left: 0.5em;
+    text-align: left;
+}
+.linktoSNS .wrapsns :nth-child(2) :first-child{
+    color: white;
+}
+.linktoSNS .wrapsns :nth-child(2) :last-child{
+    background-color: white;
+    border-radius: 3px;
+    padding: 0.2em;
+}
+.linktoSNS div p{
+    display:inline-block
+}
+.linktoSNS #img1,#img2,#img3{
+    width: 80px;
+}
+
+
+/* 배달 이미지 링크 */
+.linktoDel{
+    display: flex;
+    flex-direction: row;
+}
+.linktoDel #linktoapp{
+    background-color: #c7a186;
+}
+.linktoDel #linktodel{
+    background-color: #b08972;
+}
+
+.linktoDel img{
+    width: 100%;
+}
+
+/* 매장찾기 */
+.linktoMap{
+    background-color: white;
+    padding-top: 3em;
+    padding-bottom: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.linktoMap>h2, p{
+    margin-bottom: 0.5em;
+}
+.linktoMap>p{
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+.linktoMap button{
+        width: 150px;
+        background-size: 150px;
+        height: 50px;
+        border: 0px;
+        background-image: url('./img/bg_redbtn.png');
+        background-color: transparent;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2em;
+    }
+.linktoMap .mapicon{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    margin-top: 3em;
+    justify-content: center;
+}
+.linktoMap .mapicon1, .mapicon2{
+    display: flex;
+    flex-direction: row;
+}
+.mapicon1>div, .mapicon2>div{
+    margin-right: 2em;
+}
+.linktoMap .mapicon img{
+    width: 60px;
+}
+
+#mapdeliver{
+    margin-left: 3em;
+}
+.mapicon .mapicon1, .mapicon2:last-child{
+    border: none;
+    padding: 0px;
+}
+#mappark{
+    margin-right: 3em;
+}
+
+.linktoMap strong{
+    color: rgb(235, 18, 18);
+}
+
+/* 고정 이미지 */
+.img{
+    padding: 2em;
+    background-image: url('./img/bg_fire.png');
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.img .fixedLeft{
+    display: inline;
+    text-align: left;
+    margin: 0px;
+}
+
+.img #imgtitle{
+    margin-bottom: 0.3em;
+}
+.img .fixedRight #imginimg{
+    width: 50px;
+}
+
+/* 하단 메뉴 */
+.bottomlist{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly ;
+    min-width: 780px;
+}
+.bottommenu{
+    padding-top: 2em;
+    padding-bottom: 8em;
+    background-image: url('./img/bg_bottommenu.jpg');
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-weight: bold;
+}
+.bottommenu ul{
+    list-style: none;
+    display: inline;
+    color: black;
+    text-align: left;
+    padding-right: 4em;
+    border-right: 0.2px dashed brown  ;
+}
+.bottomlist :last-child{
+    border-right: none;
+    padding: 0px;
+}
+.bottommenu li{
+    color: #89513a;
+    font-size: 1.2em;
+}
+.bottommenu a{
+    color: #89513a;
+    font-size: 0.8em;
+}
+
+/* 푸터 */
+.footer{
+    padding-top: 4em;
+    padding-bottom: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+    color: rgb(103, 112, 121);
+    background-color: rgb(31, 29, 29);
+    min-width: 780px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}
+.footer .footerLeft{
+    text-align: left;
+}
+.footer .footerLeft h5, p{
+    font-size: 0.8em;
+}
+.footer .footerLeft img{
+    width: 25px;
+    margin-right: 0.5em;
+}
+
+
+.footer .footerRight{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2em;
+    }
+.footerRight a{
+    color: rgb(103, 112, 121);       
+    padding: 0em 0.5em;
+    border-right: 1px solid rgb(81, 89, 97);
+    font-size: 0.8em;
+    height: 15px;
+}
+
+@media screen and (max-width:700px){
+    /* 전체화면 - 꽉 차게 */
+    body #maincontent{
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .hiddenmenuwrap{
+        display: inline-block;
+    }
+    .hiddenMenuBody{
+        display: none;
+    }
+    .header {
+        display: none;
+    }
+    /* 움직이는 이미지 */
+    .carousel {
+        display: none;
+    }
+    #demo2{
+        margin-top: -500px;
+        display: block;
+    }   
+    .carousel .carousel-inner img{
+    margin-top: 0em;
+}
+    /* sns 링크 */
+    .linktoSNS .wrapsns{
+        flex-direction: column;
+        align-items: center;
+    }
+    .linktoSNS #img1,#img2,#img3{
+        width: 50px;
+        margin-top: 1.8em;
+    }
+    .linktoSNS strong{
+        font-weight: 0;
+        font-size: 0.7em;
+    }
+    .linktoSNS .wrapsns :nth-child(2){
+        margin-left: 0em;
+        text-align: center;
+    }
+    /* 배달 이미지 링크 */
+    .linktoDel{
+        flex-direction: column;
+        justify-content: center;
+    }
+    /* 지도 링크 */
+    .linktoMap{
+        text-align: center;
+    }
+    .linktoMap button{
+        width: 150px;
+        background-size: 150px;
+        height: 50px;
+        border: 0px;
+        background-image: url('./img/bg_redbtn.png');
+        background-color: transparent;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2em;
+        
+    }
+    .linktoMap .mapicon{
+        flex-direction: column;
+        margin: 0px;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .linktoMap .mapicon p{
+        display: none;
+    }
+    .mapicon .mapicon1{
+        margin-bottom: 3em;
+    }
+    .mapicon div{
+        display: inline-block;
+    }
+    .mapicon1, .mapicon2{
+        display: block;
+    }
+    #mappark{
+        margin-right: 0px;
+    }
+    /* 고정 이미지 */
+    .img{
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+    }
+    .img h3,  h1{
+        font-size: 1em;
+    }
+    .img p{
+        font-size: 0.8em;
+        margin-bottom: 2em;
+    }
+    .img .fixedRight{
+        display: flex;
+        flex-direction: row;
+    }
+    .img .fixedRight #imginimg{
+        width: 30px;
+    }
+    /* 하단 메뉴 */
+    .bottommenu{
+        display: none;
+    }
+    /* 푸터 */
+    .footer{
+        padding: 1em 2em;
+        min-width: 0;
+        flex-direction: column-reverse;
+    }
+
+    .footer .footerRight{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .footer p, h5{
+        font-size: 14px;
+    }
+    .footerRight a{
+        border-right: 0px;
+        font-size: 1em;
+        margin-bottom: 2em;
+    }
+}
