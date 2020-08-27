@@ -90,7 +90,7 @@ button{
 
 .nav{display: none;}
 
-.contentsWrap{padding-top: 57px;}
+section{padding-top: 57px;}
 
 .loginWrap{
     background: none;
@@ -153,7 +153,7 @@ legend{display: none;}
     font-family: "My boldfont", serif;
 }
 
-.tit_ico{
+.icon{
     position: relative;
     display: flex;
     min-height: 28px;
@@ -165,7 +165,7 @@ legend{display: none;}
     box-sizing: border-box;
 }
 
-.tit_ico.key02:before{
+.icon.key02:before{
     content: "";
     position: absolute;
     left: 0;
@@ -232,7 +232,7 @@ input{
     font-family: "My font", serif;
 }
 
-.loginWrap .login_option{margin: 14px 0;}
+.loginWrap .loginOption{margin: 14px 0;}
 
 input[type=checkbox]{
     position: absolute;
@@ -240,11 +240,10 @@ input[type=checkbox]{
     vertical-align: middle;
     font-size: 1em;
     border: none;
-    border-radius: 0;
     opacity: 0;
 }
 
-.loginWrap .login_option label{
+.loginWrap .loginOption label{
     margin-right: 13px;
     vertical-align: middle;
 }
@@ -261,18 +260,18 @@ input[type=checkbox]+:before{
     background-size: 21px auto;
 }
 
-.loginWrap .login .btn{
+.loginWrap .login .btnA{
     margin-block-start: 17px -8px 12px;
 }
 
-.btn{
+.btnA{
     text-align: center;
     overflow: hidden;
 }
 
-.loginWrap .login .btn a{
+.loginWrap .login .btnA a{
     float: left;
-    width: 48%;
+    width: 49%;
     width: calc(50%-6px);
     height: 48px;
     line-height: 35px;
@@ -297,10 +296,9 @@ input[type=checkbox]+:before{
     line-height: 35px;
     background: url(./images/biggerblackbtn.png) no-repeat 0 0;
     background-size: 100% 100%;
-    border-radius: 0;
 }
 
-.loginWrap .login .btn a:last-child{
+.loginWrap .login .btnA a:last-child{
     float: right;
     margin: 0;
 }
@@ -336,14 +334,14 @@ a{color: black;}
     background: #e8e8e8;
 }
 
-.simple_login{
+.loginSimple{
     max-width: 100%;
     margin: 37px 0 38px;
     padding: 0 24px;
     background: #f2ebe6;
 }
 
-.tit_ico.lock:before{
+.icon.lock:before{
     content: "";
     position: absolute;
     left: 0;
@@ -354,21 +352,21 @@ a{color: black;}
     background-size: 100% auto;
 }
 
-.simple_login .list{
+.loginSimple .list{
     max-width: 100%;
     margin: 14px 0 0;
 }
 
-.simple_login .list li:first-child{background: none;}
+.loginSimple .list li:first-child{background: none;}
 
-.simple_login .list li{
+.loginSimple .list li{
     float: left;
     width: 48%;
     margin: 0 0 9px;
     line-height: 40px;
 }
 
-.simple_login .list a{
+.loginSimple .list a{
     position: relative;
     display: block;
     height: 40px;
@@ -384,21 +382,21 @@ a{color: black;}
     box-shadow: 0 2px 4px rgba(0,0,0,.16);
 }
 
-.simple_login .list li:nth-child(2n){margin-left: 12px;}
+.loginSimple .list li:nth-child(2n){margin-left: 12px;}
 
-.simple_login .list .kakao a{
+.loginSimple .list .kakao a{
     color: #3c1e20;
     background-color: #ffeb00;
     background-image: url(./images/kakao.gif);
 }
 
-.simple_login .list .apple a{
+.loginSimple .list .apple a{
     color: white;
     background-color: black;
     background-image: url(./images/apple.gif);
 }
 
-.simple_login .list a:before{
+.loginSimple .list a:before{
     content: "";
     position: absolute;
     left: 40px;
@@ -409,9 +407,9 @@ a{color: black;}
     opacity: .2;
 }
 
-.simple_login .list .kakao a:before{opacity: .6;}
+.loginSimple .list .kakao a:before{opacity: .6;}
 
-.simple_login .list:after{
+.loginSimple .list:after{
     content: "";
     display: block;
     clear: both;
@@ -479,11 +477,10 @@ a{color: black;}
     line-height: 35px;
     background: url(./images/biggerblackbtn.png) no-repeat 0 0;
     background-size: 100% 100%;
-    border-radius: 0;
     font-size: 1.1rem;
 }
 
-.footerWrap{
+footer{
     position: absolute;
     height: 350px;
     left: 0;
@@ -491,41 +488,41 @@ a{color: black;}
     bottom: 0;
 }
 
-.footer{
+.footerWrap{
     height: 100%;
     color: #818181;
     background: #292929;
 }
 
-.footer a{color: #818181;}
+.footerWrap a{color: #818181;}
 
-.footer .webContainer{
+.footerWrap .webContainer{
     position: relative;
     max-width: 1184px;
     padding: 35px 16px;
 }
 
-.footer_menu{
+.footerMenu{
     top: 42px;
     right: 10px;
     position: static;
 }
 
-.footer_menu ul{overflow: hidden;}
+.footerMenu ul{overflow: hidden;}
 
-.footer_menu ul li{
+.footerMenu ul li{
     width: 25%;
     float: left;
 }
 
-.footer_menu ul a{
+.footerMenu ul a{
     position: relative;
     display: block;
     padding: 5px 0;
     font-size: .85rem;
 }
 
-.footer_menu ul li a:before{
+.footerMenu ul li a:before{
     content: "";
     position: absolute;
     left: 0;
@@ -536,19 +533,19 @@ a{color: black;}
     background: #3f3f3f;
 }
 
-.footer_menu ul li:nth-child(2){
+.footerMenu ul li:nth-child(2){
     width: 50%;
     text-align: center;
 }
 
-.footer_menu ul li:last-child{text-align: right;}
+.footerMenu ul li:last-child{text-align: right;}
 
-.footer_menu .btn{
+.footerMenu .btnA{
     position: relative;
     padding: 12px 0;
 }
 
-.footer_menu .btn a{
+.footerMenu .btnA a{
     float: left;
     width: 49%;
     width: calc(50%-3.5px);
@@ -561,9 +558,9 @@ a{color: black;}
     font-size: .9rem;
 }
 
-.footer_menu .btn a:last-child{float: right;}
+.footerMenu .btnA a:last-child{float: right;}
 
-.footer .logo{
+.footerWrap .logo{
     height: 15px;
     margin: 30px 0 17px;
 }
