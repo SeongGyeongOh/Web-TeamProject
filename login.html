@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>로그인</title>
+
+        <link rel="stylesheet" href="./login.css" media="screen and (min-width:768px)">
+        <link rel="stylesheet" href="./login_mobile.css" media="screen and (max-width:768px)">
+        
+        <style>
+            @font-face {
+                font-family: "My font";
+                src: url(./font/SCDream5.otf);
+            }
+
+            @font-face {
+                font-family: "My boldfont";
+                src: url(./font/SCDream9.otf);
+            }
+
+            *{outline: none;}
+
+            body{
+                /* max-height: 100%; */
+                color: black;
+                background: #f2ebe6;
+                word-wrap: normal;
+                word-break: keep-all;
+                overflow-x: hidden;
+            }
+
+            body, html{
+                margin: 0;
+                padding: 0;
+            }
+
+            html{font-family: "My font", serif;}
+
+            a, div, li{
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+            }
+
+            h1, h2, h3, h4, h5, h6, li, ul, p, em{
+                margin: 0;
+                padding: 0;
+            }
+
+            em{
+                color: #e22219;
+                font-style: normal;
+            }
+
+            li{list-style: none;}
+
+            a{text-decoration: none;}   
+
+            fieldset{
+                margin: 0;
+                padding: 0;
+                border: none;
+            }         
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="subWrap header_offtype">
+                <header class="headerWrap">
+                    <div class="headMenu">
+                        <div class="webContainer">
+                            <h1 class="WEB logo">
+                                <a href="./index.html">버거킹</a>
+                            </h1>
+                            <div class="WEB utilWrap">
+                                <a href="./index.html">
+                                    <span>브랜드홈</span>
+                                </a>
+                                <a href="#" class="top">                                    
+                                    <span>로그인</span>
+                                </a>
+                                <a href="#" class="top">                                    
+                                    <span>고객센터</span>
+                                </a>
+                            </div>
+                            <div class="WEB off_cont join">
+                                <a href="#" class="btn_join">
+                                    <strong>회원가입</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <header class="MOB M_headerWrap">
+                    <div class="webContainer">
+                        <div class="MOB titleBar st02">
+                            <h1 class="page_tit logo_type">
+                                <a href="./index.html" style="color: white;">버거킹</a><span></span>
+                            </h1>
+                            <div class="title_btn">
+                                <button type="button" class="btn_head_menu">
+                                    <span>All Menu</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <section>
+                    <article class="WEB locationWrap">
+                        <div class="webContainer">
+                            <div class="nav">
+                                <a href="https://www.burgerking.co.kr">
+                                    <span>HOME</span>
+                                </a>
+                                <a href="#" class="login">
+                                    <span>로그인</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="contentsBox01 loginWrap">
+                        <div class="webContainer">
+                            <h2 class="page_tit02 bg_w">
+                                <em>WHERE TASTE IS KING</em>
+                                <span>어서오세요! 버거킹입니다.</span>
+                            </h2>
+                            <div class="weblogin_ui">
+                                <fieldset class="login">
+                                    <legend>로그인</legend>
+                                    <h3 class="tit01 icon key02">
+                                        일반로그인
+                                    </h3>
+                                    <div class="cont">
+                                        <div class="inpbox">
+                                            <label>
+                                                <input type="text" placeholder="아이디 (이메일)">
+                                                <button type="button" tabindex="-1" class="btn_del01" style="display: none;"></button>
+                                            </label>
+                                        </div>
+                                        <div class="inpbox">
+                                            <label>
+                                                <input type="password" placeholder="비밀번호">
+                                                <button type="button" tabindex="-1" class="btn_view01"></button>
+                                            </label>
+                                        </div>
+                                        <div class="loginOption">
+                                            <label class="checkbox">
+                                                <input type="checkbox">
+                                                <span>
+                                                    아이디 저장
+                                                </span>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox">
+                                                <span>
+                                                    자동 로그인
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="btnA item2">
+                                            <a href="#" class="btn01 m red">
+                                                <span>로그인</span>
+                                            </a>
+                                            <a href="#" class="btn01 m">
+                                                <span>회원가입</span>
+                                            </a>
+                                        </div>
+                                        <div class="loginMenu">
+                                            <a href="#">
+                                                <span>아이디 찾기</span>
+                                            </a>
+                                            <a href="#" class="password">
+                                                <span>비밀번호 찾기</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="loginSimple">
+                                    <h3 class="tit01 icon lock">
+                                        간편로그인
+                                    </h3>
+                                    <ul class="list">
+                                        <li class="naver">
+                                            <a href="https://nid.naver.com/oauth2.0/authorize?client_id=UbN0KyzxcY4p6ANJ9Zou&response_type=code&redirect_uri=https%3A%2F%2Fwww.burgerking.co.kr%2FnaverLogin&state=2t0tcmtcf2elab0c5bu130i0ug" onclick="window.open(this.href,'_blank', 'width=504px, height=642px'); return false;">
+                                                <span>네이버 로그인</span>
+                                            </a>
+                                        </li>
+                                        <li class="kakao">
+                                            <a href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Fwww.burgerking.co.kr%253A80%252FkakaoLogin%26client_id%3D7fb29396f0f53882878cabebd1287433" onclick="window.open(this.href, '_blank', 'width=483px, height=499px'); return false;">
+                                                <span>카카오톡 로그인</span>
+                                            </a>
+                                        </li>
+                                        <li class="apple">
+                                            <a href="https://appleid.apple.com/auth/authorize?client_id=kr.co.hybrid.burgerking.apple.login&redirect_uri=https%3A%2F%2Fwww.burgerking.co.kr%2Foauth2%2Fredirect%2Fapple&response_type=code&response_mode=form_post&scope=name+email&state=aeee529f-344b-41b0-8236-0a8ead90f5e8" onclick="window.open(this.href, '_blank', 'width=500px, height=499px'); return false;">
+                                                <span>애플 로그인</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="contentsBox01 nonmember">
+                        <div class="webContainer container01">
+                            <div class="tab01">
+                                <ul class="item2">
+                                    <li class="on">
+                                        <button type="button">
+                                            <span>비회원 주문</span>
+                                        </button>
+                                    </li>
+                                    <li class>
+                                        <button type="button">
+                                            <span>비회원 주문내역</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="subContents">
+                                <div class="container02">
+                                    <p>회원가입 없이 비회원으로 주문이 가능합니다.</p>
+                                </div>
+                                <div class="btnA">
+                                    <a href="#" class="btn01 order">
+                                        <span>비회원 주문</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <footer>
+                    <div class="footerWrap">
+                        <div class="webContainer">
+                            <div class="footerMenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>이용약관</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer_top">
+                                            <span>개인정보취급방침</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer_top">
+                                            <span>법적고지</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="btnA">
+                                    <a href="#">
+                                        <span>인재채용</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>가맹점모집</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="copyright">
+                                <h2 class="logo">
+                                    <img src="./images/footerlogo.gif">
+                                </h2>
+                                <p>서울 종로구 삼봉로 71 G 타워 2층 주식회사 비케이알 | 전화주문 1599-0505</p>
+                                <p>
+                                    <a>사업자 등록번호 010-86-76277</a>
+                                    | (주)BKR 대표이사 문영주
+                                </p>
+                                <p>Copyright 2019 BKR Co., Ltd. All right Reserrved</p>
+                                <div class="sns">
+                                    <a href="https://www.facebook.com/burgerkingkorea" target="_blank" class="facebook">페이스북</a>
+                                    <a href="https://www.instagram.com/burgerkingkorea" target="_blank" class="instagram">인스타그램</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
