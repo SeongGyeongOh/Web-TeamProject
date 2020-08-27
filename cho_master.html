@@ -19,25 +19,6 @@
         <!-- 구글지도 api 라이브러리 추가 -->
         <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsjSbKX8hvve-04z0bzKnObB-CckMK1Wg&callback=initMap" defer></script>
 
-        <script>
-            // ajax를 이용한 화면변환
-            function changescreen(){   
-                // alert('test1');
-        
-                var url='<화면에 보일 html 파일명>';
-        
-                var req=new XMLHttpRequest();
-        
-                req.open('GET', url, true);
-                req.onreadystatechange=function(){
-                    if(req.readyState==4&&req.status==200){
-                        alert(req.responseText);    
-                        document.getElementById('<html이 놓여질 요소의 id>').innerHTML=req.responseText;                            
-                    }
-                }
-                req.send();
-            }
-        </script>
 
         <script>
             // 상단 메뉴 마우스 이벤트
@@ -384,6 +365,9 @@
             body #maincontent{
                 min-width: 100%;
                 max-width: 100%;
+            }
+            #contentsdiv{
+                margin-top: -38em;
             }
             .hiddenmenuwrap{
                 display: inline-block;
