@@ -1,5 +1,5 @@
 #app{
-    position: relative;
+    position: flex;
     min-width: 960px;
     min-height: 100%;
 }
@@ -19,14 +19,14 @@
     z-index: 50;
 }
 
-.head_menuWrap, .headerWrap{background: white;}
+.headMenu, .headerWrap{background: white;}
 
-.subWrap .head_menuWrap{
+.subWrap .headMenu{
     position: relative;
     background: #e22219;
 }
 
-.head_menuWrap:before{
+.headMenu:before{
     content: "";
     position: absolute;
     left: 0;
@@ -36,24 +36,24 @@
     background: white;
 }
 
-.subWrap .head_menuWrap .web_container{
+.subWrap .headMenu .webContainer{
     height: 168px;
     padding-top: 48px;
 }
 
-.head_menuWrap .web_container{
+.headMenu .webContainer{
     position: relative;
     height: 120px;
     padding-top: 24px;
 }
 
-.web_container{
+.webContainer{
     max-width: 1184px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.subWrap .head_menuWrap .logo{
+.subWrap .headMenu .logo{
     display: inline-block;
     position: static;
     width: auto;
@@ -125,7 +125,7 @@ button{
     border-radius: 5px;
 }
 
-.head_menuWrap:after {
+.headMenu:after {
     content: "";
     position: absolute;
     left: 0;
@@ -157,7 +157,7 @@ button{
 
 .title_btn{display: none;}
 
-.locationWrap .web_container{overflow: hidden;}
+.locationWrap .webContainer{overflow: hidden;}
 
 .contentsWrap{
     min-height: 450px;
@@ -172,16 +172,16 @@ button{
     background: black;
 }
 
-.page_navi{
+.nav{
     float: left;
     font-size: .875rem;
 }
 
 .locationWrap a{color: white;}
 
-.page_navi>*{float: left;}
+.nav>*{float: left;}
 
-.page_navi .login:before{
+.nav .login:before{
     content: "";
     float: left;
     width: 4px;
@@ -195,7 +195,7 @@ button{
     background: white;
 }
 
-.loginWrap .web_container{
+.loginWrap .webContainer{
     padding: 75px 20px 0;
     background: url(./images/background.gif) no-repeat 100% 100%;
 }
@@ -367,12 +367,12 @@ input[type=checkbox]+:before{
     background: url(./images/check.png) no-repeat 0;
 }
 
-.loginWrap .login .c_btn{
+.loginWrap .login .btn{
     margin: 30px 0;
     text-align: left;
 }
 
-.loginWrap .loginWrap .c_btn a{
+.loginWrap .loginWrap .btn a{
     float: left;
     width: 216px;
 }
@@ -381,7 +381,7 @@ input[type=checkbox]+:before{
     background: url(./images/redbtn.png) no-repeat 0 0;
 }
 
-.c_btn.item2 a{
+.btn.item2 a{
     width: 49%;
     width: calc(50%-2px);
 }
@@ -407,11 +407,11 @@ input[type=checkbox]+:before{
     background: url(./images/blackbtn.png) no-repeat 50%;
 }
 
-.loginWrap .login .login_menu{overflow: hidden;}
+.loginWrap .login .loginMenu{overflow: hidden;}
 
-.loginWrap .login .login_menu a:first-child{padding-left: 0;}
+.loginWrap .login .loginMenu a:first-child{padding-left: 0;}
 
-.loginWrap .login .login_menu a{
+.loginWrap .login .loginMenu a{
     position: relative;
     float: left;
     padding: 5px 18px;
@@ -419,7 +419,7 @@ input[type=checkbox]+:before{
     color: black;
 }
 
-.loginWrap .login .login_menu .password:before{
+.loginWrap .login .loginMenu .password:before{
     content: "";
     position: absolute;
     left: 0;
@@ -471,7 +471,7 @@ input[type=checkbox]+:before{
     text-align: center;
     background: #1ec800 url(./images/naver.gif) no-repeat 21px;
     border-radius: 6px;
-    box-shadow: 1px 1px 1px 1px lavender;
+    box-shadow: 0 2px 4px rgba(0,0,0,.16);
 }
 
 .simple_login .list .kakao a{                
@@ -497,7 +497,7 @@ input[type=checkbox]+:before{
 
 .simple_login .list .kakao a:before{opacity: .6;}
 
-.web_container .container01{
+.webContainer .container01{
     padding-left: 16px;
     padding-right: 16px;
 }
@@ -525,6 +525,10 @@ input[type=checkbox]+:before{
     border-bottom-color: #e22219;
 }
 
+.tab01 .on button:active{
+    color: #e22219;
+}
+
 .tab01 button{
     display: inline-block;
     padding: 10px 1px;
@@ -540,9 +544,9 @@ input[type=checkbox]+:before{
     font-size: 1.3rem;
 }
 
-.c_btn:last-child{margin-bottom: 0px;}
+.btn:last-child{margin-bottom: 0px;}
 
-.c_btn{
+.btn{
     margin: 40px 0 80px;
     text-align: center;
 }
@@ -571,7 +575,7 @@ input[type=checkbox]+:before{
     background: #292929;
 }
 
-.footer .web_container{
+.footer .webContainer{
     position: relative;
     padding: 47px 20px;
 }
@@ -602,13 +606,13 @@ input[type=checkbox]+:before{
     background: #3f3f3f;
 }
 
-.footer_menu .c_btn{
+.footer_menu .btn{
     margin: 10px;
     padding: 18px 10px;
     overflow: hidden;
 }
 
-.footer_menu .c_btn a{
+.footer_menu .btn a{
     float: left;
     width: 49%;
     width: calc(50%-2px);
@@ -620,7 +624,7 @@ input[type=checkbox]+:before{
     border-radius: 4px;
 }
 
-.footer_menu .c_btn a:last-child{float: right;}
+.footer_menu .btn a:last-child{float: right;}
 
 .footer .logo{margin-bottom: 24px;}
 

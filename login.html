@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>로그인</title>
 
-        <link rel="stylesheet" href="./login.css" media="(min-width:768px)">
-        <link rel="stylesheet" href="./login_mobile.css" media="(max-width:768px)">
+        <link rel="stylesheet" href="./login.css" media="screen and (min-width:768px)">
+        <link rel="stylesheet" href="./login_mobile.css" media="screen and (max-width:768px)">
         
         <style>
             @font-face {
@@ -18,6 +18,8 @@
                 font-family: "My boldfont";
                 src: url(./font/SCDream9.otf);
             }
+
+            *{outline: none;}
 
             body{
                 min-height: 100%;
@@ -45,8 +47,6 @@
                 padding: 0;
             }
 
-            h1, h2, h3, h4, h5, h6{font-weight: bold;}
-
             em{
                 color: #e22219;
                 font-style: normal;
@@ -68,12 +68,23 @@
         <div id="app">
             <div class="subWrap header_offtype">
                 <div class="headerWrap">
-                    <div class="head_menuWrap">
+                    <div class="headMenu">
                         
-                        <div class="web_container">
+                        <div class="webContainer">
                             <h1 class="WEB logo">
                                 <a href="https://www.burgerking.co.kr">버거킹</a>
                             </h1>
+                            <div class="WEB utilWrap">
+                                <a href="https://www.burgerking.co.kr">
+                                    <span>브랜드홈</span>
+                                </a>
+                                <a href="#" class="top">                                    
+                                    <span>로그인</span>
+                                </a>
+                                <a href="#" class="top">                                    
+                                    <span>고객센터</span>
+                                </a>
+                            </div>
                             <div class="WEB off_cont join">
                                 <a href="#" class="btn_join">
                                     <strong>회원가입</strong>
@@ -83,7 +94,7 @@
                     </div>
                 </div>
                 <div class="MOB M_headerWrap">
-                    <div class="web_container">
+                    <div class="webContainer">
                         <div class="MOB titleBar st02">
                             <h1 class="page_tit logo_type">
                                 <span>버거킹</span>
@@ -98,8 +109,8 @@
                 </div>
                 <div class="contentsWrap">
                     <div class="WEB locationWrap">
-                        <div class="web_container">
-                            <div class="page_navi">
+                        <div class="webContainer">
+                            <div class="nav">
                                 <a href="https://www.burgerking.co.kr">
                                     <span>HOME</span>
                                 </a>
@@ -110,7 +121,7 @@
                         </div>
                     </div>
                     <div class="contentsBox01 loginWrap">
-                        <div class="web_container">
+                        <div class="webContainer">
                             <h2 class="page_tit02 bg_w">
                                 <em>WHERE TASTE IS KING</em>
                                 <span>어서오세요! 버거킹입니다.</span>
@@ -148,7 +159,7 @@
                                                 </span>
                                             </label>
                                         </div>
-                                        <div class="c_btn item2">
+                                        <div class="btn item2">
                                             <a href="#" class="btn01 m red">
                                                 <span>로그인</span>
                                             </a>
@@ -156,7 +167,7 @@
                                                 <span>회원가입</span>
                                             </a>
                                         </div>
-                                        <div class="login_menu">
+                                        <div class="loginMenu">
                                             <a href="#">
                                                 <span>아이디 찾기</span>
                                             </a>
@@ -192,7 +203,7 @@
                         </div>
                     </div>
                     <div class="contentsBox01 nonmember">
-                        <div class="web_container container01">
+                        <div class="webContainer container01">
                             <div class="tab01">
                                 <ul class="item2">
                                     <li class="on">
@@ -211,7 +222,7 @@
                                 <div class="container02">
                                     <p>회원가입 없이 비회원으로 주문이 가능합니다.</p>
                                 </div>
-                                <div class="c_btn">
+                                <div class="btn">
                                     <a href="#" class="btn01 order">
                                         <span>비회원 주문</span>
                                     </a>
@@ -222,7 +233,7 @@
                 </div>
                 <div class="footerWrap">
                     <div class="footer">
-                        <div class="web_container">
+                        <div class="webContainer">
                             <div class="footer_menu">
                                 <ul>
                                     <li>
@@ -241,7 +252,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <div class="c_btn">
+                                <div class="btn">
                                     <a href="#">
                                         <span>인재채용</span>
                                     </a>

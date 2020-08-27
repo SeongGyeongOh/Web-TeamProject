@@ -88,7 +88,7 @@ button{
     z-index: 100;
 }
 
-.page_navi{display: none;}
+.nav{display: none;}
 
 .contentsWrap{padding-top: 57px;}
 
@@ -99,7 +99,7 @@ button{
 
 .contentsBox01{padding: 0;}
 
-.loginWrap>.web_container{
+.loginWrap>.webContainer{
     padding: 0;
     background: none;
 }
@@ -123,7 +123,7 @@ button{
 
 .loginWrap .page_tit02>*{display: block;}
 
-.web_container{min-width: 320px;}
+.webContainer{min-width: 320px;}
 
 .weblogin_ui{
     padding: 0;
@@ -261,16 +261,16 @@ input[type=checkbox]+:before{
     background-size: 21px auto;
 }
 
-.loginWrap .login .c_btn{
+.loginWrap .login .btn{
     margin-block-start: 17px -8px 12px;
 }
 
-.c_btn{
+.btn{
     text-align: center;
     overflow: hidden;
 }
 
-.loginWrap .login .c_btn a{
+.loginWrap .login .btn a{
     float: left;
     width: 48%;
     width: calc(50%-6px);
@@ -300,18 +300,18 @@ input[type=checkbox]+:before{
     border-radius: 0;
 }
 
-.loginWrap .login .c_btn a:last-child{
+.loginWrap .login .btn a:last-child{
     float: right;
     margin: 0;
 }
 
-.loginWrap .login .login_menu{
+.loginWrap .login .loginMenu{
     text-align: center;
     overflow: hidden;
     margin-top: -10px;
 }
 
-.loginWrap .login .login_menu a{
+.loginWrap .login .loginMenu a{
     margin-top: 24px;
     display: inline-block;
     float: none;
@@ -320,12 +320,12 @@ input[type=checkbox]+:before{
 
 a{color: black;}
 
-.loginWrap .login .login_menu a{
+.loginWrap .login .loginMenu a{
     position: relative;
     padding: 5px 10px;
 }
 
-.loginWrap .login .login_menu .password:before{
+.loginWrap .login .loginMenu .password:before{
     content: "";
     position: absolute;
     left: 0;
@@ -381,6 +381,7 @@ a{color: black;}
     background: #1ec800 url(./images/naver.gif) no-repeat 12.5px;
     background-size: 15px auto;
     border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.16);
 }
 
 .simple_login .list li:nth-child(2n){margin-left: 12px;}
@@ -498,7 +499,7 @@ a{color: black;}
 
 .footer a{color: #818181;}
 
-.footer .web_container{
+.footer .webContainer{
     position: relative;
     max-width: 1184px;
     padding: 35px 16px;
@@ -542,22 +543,25 @@ a{color: black;}
 
 .footer_menu ul li:last-child{text-align: right;}
 
-.footer_menu .c_btn{
+.footer_menu .btn{
+    position: relative;
     padding: 12px 0;
 }
 
-.footer_menu .c_btn a{
+.footer_menu .btn a{
     float: left;
+    width: 49%;
     width: calc(50%-3.5px);
     height: 36px;
-    padding: 5px 140px;
+    padding: 5px 0;
     color: white;
     background: #434343;
     line-height: 26px;
     border-radius: 4px;
+    font-size: .9rem;
 }
 
-.footer_menu .c_btn a:last-child{float: right;}
+.footer_menu .btn a:last-child{float: right;}
 
 .footer .logo{
     height: 15px;
@@ -571,8 +575,8 @@ img{
 }
 
 .copyright p{
-    font-size: .7rem;
-    line-height: 140%;
+    font-size: .75rem;
+    line-height: 150%;
 }
 
 .copyright .sns a{
